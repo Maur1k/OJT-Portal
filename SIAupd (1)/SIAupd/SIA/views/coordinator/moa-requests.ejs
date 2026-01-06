@@ -1,0 +1,125 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">MOA Requests Management</h2>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof query !== 'undefined' && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <!-- Search and Filter -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="GET" action="/coordinator/moa-requests" class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="search" placeholder="Search by student name, number, or company name..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" name="status">
+                        <option value="all" <%= typeof status !== 'undefined' && status === 'all' ? 'selected' : '' %>>All Status</option>
+                        <option value="processing" <%= typeof status !== 'undefined' && status === 'processing' ? 'selected' : '' %>>Processing</option>
+                        <option value="accepted" <%= typeof status !== 'undefined' && status === 'accepted' ? 'selected' : '' %>>Accepted</option>
+                        <option value="for signature" <%= typeof status !== 'undefined' && status === 'for signature' ? 'selected' : '' %>>For Signature</option>
+                        <option value="denied" <%= typeof status !== 'undefined' && status === 'denied' ? 'selected' : '' %>>Denied</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary w-100">Filter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MOA Requests List -->
+    <div class="card">
+        <div class="card-body">
+            <% if (typeof requests !== 'undefined' && requests.length > 0) { %>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Student Number</th>
+                            <th>Company/Agency</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% requests.forEach(request => { %>
+                        <tr>
+                            <td>
+                                <%= request.profile ? request.profile.firstName + ' ' + (request.profile.middleName || '') + ' ' + request.profile.lastName : request.studentId.email %>
+                            </td>
+                            <td><%= request.profile ? request.profile.studentNumber : 'N/A' %></td>
+                            <td>
+                                <strong><%= request.companyName %></strong><br>
+                                <small class="text-muted"><%= request.companyAddress %></small>
+                            </td>
+                            <td>
+                                <span class="badge bg-info"><%= request.companyType === 'company' ? 'Company' : 'Agency' %></span>
+                            </td>
+                            <td>
+                                <span class="badge 
+                                    <% if (request.status === 'accepted') { %>bg-success
+                                    <% } else if (request.status === 'for signature') { %>bg-info
+                                    <% } else if (request.status === 'denied') { %>bg-danger
+                                    <% } else { %>bg-warning text-dark<% } %>">
+                                    <%= request.status === 'for signature' ? 'For Signature' : request.status.charAt(0).toUpperCase() + request.status.slice(1) %>
+                                </span>
+                            </td>
+                            <td><%= new Date(request.submittedAt).toLocaleDateString() %></td>
+                            <td>
+                                <a href="/coordinator/moa-requests/<%= request._id %>" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-eye"></i> View Details
+                                </a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <% if (currentPage > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage - 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof status !== 'undefined' && status !== 'all' ? '&status=' + status : '' %>">Previous</a>
+                    </li>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link" href="?page=<%= i %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof status !== 'undefined' && status !== 'all' ? '&status=' + status : '' %>"><%= i %></a>
+                    </li>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage + 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof status !== 'undefined' && status !== 'all' ? '&status=' + status : '' %>">Next</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+            <% } %>
+            <% } else { %>
+            <p class="text-center text-muted py-5">No MOA requests found.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

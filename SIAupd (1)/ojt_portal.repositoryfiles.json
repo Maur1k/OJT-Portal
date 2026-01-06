@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "693cfebe52a76bcefd8700be"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "fileName": "repo-693bd3cf3c63c81c5dc1b310-1765605054227-893189005.png",
+  "originalName": "gpu.png",
+  "filePath": "uploads\\repository\\other\\repo-693bd3cf3c63c81c5dc1b310-1765605054227-893189005.png",
+  "fileSize": 65510,
+  "mimeType": "image/png",
+  "fileType": "pre_application",
+  "description": "Application for Internship",
+  "uploadedAt": {
+    "$date": "2025-12-13T05:50:54.232Z"
+  },
+  "__v": 0
+}]

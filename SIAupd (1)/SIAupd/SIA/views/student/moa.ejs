@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">MOA Management</h2>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof moa !== 'undefined' && moa) { %>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0">Current MOA</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Status:</strong> 
+                        <span class="badge 
+                            <% if (moa.status === 'completed') { %>bg-success
+                            <% } else if (moa.status === 'for signature') { %>bg-info
+                            <% } else if (moa.status === 'revise') { %>bg-warning
+                            <% } else { %>bg-secondary<% } %> fs-6">
+                            <%= moa.status.toUpperCase() %>
+                        </span>
+                    </p>
+                    <p><strong>File Name:</strong> <%= moa.fileName %></p>
+                    <p><strong>Uploaded:</strong> <%= new Date(moa.uploadedAt).toLocaleDateString() %></p>
+                    <p><strong>Last Updated:</strong> <%= new Date(moa.updatedAt).toLocaleDateString() %></p>
+                </div>
+                <div class="col-md-6">
+                    <% if (moa.coordinatorComment) { %>
+                    <div class="alert alert-info">
+                        <strong>Coordinator Comment:</strong><br>
+                        <%= moa.coordinatorComment %>
+                    </div>
+                    <% } %>
+                    <a href="/<%= moa.filePath %>" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-download"></i> View/Download MOA
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0"><%= typeof moa !== 'undefined' && moa ? 'Replace MOA' : 'Upload MOA' %></h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/student/moa" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="moaFile" class="form-label">MOA File (PDF or JPG) <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" id="moaFile" name="moaFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <small class="text-muted">Maximum file size: 10MB</small>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-upload"></i> <%= typeof moa !== 'undefined' && moa ? 'Replace MOA' : 'Upload MOA' %>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

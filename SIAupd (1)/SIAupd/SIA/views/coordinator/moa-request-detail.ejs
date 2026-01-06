@@ -1,0 +1,153 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="page-headline">
+        <h2>MOA Request Details</h2>
+        <a href="/coordinator/moa-requests" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Requests
+        </a>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof query !== 'undefined' && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="row">
+        <!-- Student Information -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">Student Information</h5>
+                </div>
+                <div class="card-body">
+                    <% if (profile) { %>
+                    <p><strong>Name:</strong> <%= profile.firstName %> <%= profile.middleName || '' %> <%= profile.lastName %></p>
+                    <p><strong>Student Number:</strong> <%= profile.studentNumber %></p>
+                    <p><strong>Course:</strong> <%= profile.course %></p>
+                    <p><strong>Year Level:</strong> <%= profile.yearLevel %></p>
+                    <p><strong>Email:</strong> <%= request.studentId.email %></p>
+                    <% } else { %>
+                    <p><strong>Email:</strong> <%= request.studentId.email %></p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company/Agency Information -->
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5 class="mb-0">Company/Agency Information</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Name:</strong> <%= request.companyName %></p>
+                    <p><strong>Type:</strong> 
+                        <span class="badge bg-info"><%= request.companyType === 'company' ? 'Company' : 'Agency' %></span>
+                    </p>
+                    <p><strong>Address:</strong> <%= request.companyAddress %></p>
+                    <p><strong>Contact:</strong> <%= request.companyContact %></p>
+                    <% if (request.companyEmail) { %>
+                    <p><strong>Email:</strong> <%= request.companyEmail %></p>
+                    <% } %>
+                    <% if (request.companyWebsite) { %>
+                    <p><strong>Website:</strong> <a href="<%= request.companyWebsite %>" target="_blank"><%= request.companyWebsite %></a></p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Details -->
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Request Details</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Status:</strong> 
+                        <span class="badge 
+                            <% if (request.status === 'accepted') { %>bg-success
+                            <% } else if (request.status === 'for signature') { %>bg-info
+                            <% } else if (request.status === 'denied') { %>bg-danger
+                            <% } else { %>bg-warning text-dark<% } %> fs-6">
+                            <%= request.status === 'for signature' ? 'For Signature' : request.status.charAt(0).toUpperCase() + request.status.slice(1) %>
+                        </span>
+                    </p>
+                    <p><strong>Submitted:</strong> <%= new Date(request.submittedAt).toLocaleString() %></p>
+                    <% if (request.reviewedAt) { %>
+                    <p><strong>Reviewed:</strong> <%= new Date(request.reviewedAt).toLocaleString() %></p>
+                    <% } %>
+                    <% if (request.coordinatorId) { %>
+                    <p><strong>Reviewed By:</strong> <%= request.coordinatorId.email %></p>
+                    <% } %>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>MOA File:</strong></p>
+                    <a href="/<%= request.filePath %>" target="_blank" class="btn btn-primary">
+                        <i class="bi bi-file-pdf"></i> View/Download PDF
+                    </a>
+                    <a href="/<%= request.filePath %>" download class="btn btn-outline-primary">
+                        <i class="bi bi-download"></i> Download
+                    </a>
+                </div>
+            </div>
+            <% if (request.coordinatorComment) { %>
+            <hr>
+            <div class="alert alert-info">
+                <strong>Coordinator Comment:</strong><br>
+                <%= request.coordinatorComment %>
+            </div>
+            <% } %>
+            <% if (request.approvedCompanyId) { %>
+            <hr>
+            <div class="alert alert-success">
+                <strong>Approved Company:</strong> This request has been linked to the approved company/agency database.
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <!-- Update Status Form -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Update Request Status</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/coordinator/moa-requests/<%= request._id %>/status">
+                <div class="mb-3">
+                    <label class="form-label">Status <span class="text-danger">*</span></label>
+                    <select class="form-select" name="status" required>
+                        <option value="processing" <%= request.status === 'processing' ? 'selected' : '' %>>Processing</option>
+                        <option value="accepted" <%= request.status === 'accepted' ? 'selected' : '' %>>Accepted</option>
+                        <option value="for signature" <%= request.status === 'for signature' ? 'selected' : '' %>>For Signature</option>
+                        <option value="denied" <%= request.status === 'denied' ? 'selected' : '' %>>Denied</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Comment</label>
+                    <textarea class="form-control" name="comment" rows="4" placeholder="Add any comments or notes..."><%= request.coordinatorComment || '' %></textarea>
+                </div>
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> <strong>Note:</strong> When you accept or set to "For Signature", the company/agency will be automatically added to the approved companies list, and the student will be linked to it. The MOA will be moved to MOA Management.
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-check-circle"></i> Update Status
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

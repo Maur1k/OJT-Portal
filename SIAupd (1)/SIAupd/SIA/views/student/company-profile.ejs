@@ -1,0 +1,136 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+  <% if (query && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+      <%= query.success %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+  <% if (query && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <%= query.error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+  <% } %>
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <div>
+      <h2 class="mb-0"><%= company.name %></h2>
+      <div class="text-muted">
+        <%= company.type === 'agency' ? 'Agency' : 'Company' %>
+        <% if (typeof company.availableForCourses !== 'undefined' && company.availableForCourses && company.availableForCourses.length > 0) { %>
+        | Available for: 
+        <% company.availableForCourses.forEach((course, idx) => { %>
+          <span class="badge bg-primary"><%= course %></span>
+        <% }); %>
+        <% } else { %>
+        | <span class="badge bg-success">Available for All Courses</span>
+        <% } %>
+      </div>
+    </div>
+    <% if (typeof existingApplication !== 'undefined' && existingApplication) { %>
+      <% 
+        const statusLabels = {
+          'pending': 'Pending',
+          'accepted': 'Accepted',
+          'rejected': 'Rejected',
+          'cancelled': 'Cancelled'
+        };
+        const statusColors = {
+          'pending': 'warning',
+          'accepted': 'success',
+          'rejected': 'danger',
+          'cancelled': 'secondary'
+        };
+        const statusLabel = statusLabels[existingApplication.status] || existingApplication.status;
+        const statusColor = statusColors[existingApplication.status] || 'secondary';
+        const canCancel = existingApplication.status === 'pending';
+      %>
+      <div>
+        <% if (canCancel) { %>
+          <form method="POST" action="/student/companies/<%= company._id %>/cancel" onsubmit="return confirm('Are you sure you want to cancel your application? This action cannot be undone.');" class="d-inline">
+            <button type="submit" class="btn btn-outline-danger">
+              <i class="bi bi-x-circle"></i> Cancel Application
+            </button>
+          </form>
+          <button type="button" class="btn btn-<%= statusColor %> ms-2" disabled>
+            <i class="bi bi-clock"></i> 
+            Status: <%= statusLabel %>
+          </button>
+        <% } else { %>
+          <button type="button" class="btn btn-<%= statusColor %>" disabled>
+            <i class="bi bi-<%= existingApplication.status === 'accepted' ? 'check-circle' : existingApplication.status === 'rejected' ? 'x-circle' : 'ban' %>"></i> 
+            Applied - <%= statusLabel %>
+          </button>
+        <% } %>
+        <% if (existingApplication.notes) { %>
+          <div class="mt-2">
+            <small class="text-muted">
+              <strong>Coordinator Note:</strong> <%= existingApplication.notes %>
+            </small>
+          </div>
+        <% } %>
+      </div>
+    <% } else { %>
+      <form method="POST" action="/student/companies/<%= company._id %>/apply" onsubmit="return confirm('Send application to coordinator?');">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-send"></i> Apply (notify coordinator)
+        </button>
+      </form>
+    <% } %>
+  </div>
+
+  <% if (isExample) { %>
+    <div class="alert alert-info">
+      This is an example company profile. Replace with real company data and wire the apply action to your coordinator notification flow.
+    </div>
+  <% } %>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title mb-3">Company Details</h5>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="text-muted">Location</div>
+          <div><%= company.address || '—' %></div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted">Contact</div>
+          <div><%= company.contact || '—' %></div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-md-6">
+          <div class="text-muted">Email</div>
+          <div><%= company.email || '—' %></div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-muted">Website</div>
+          <div>
+            <% if (company.website) { %>
+              <a href="<%= company.website %>" target="_blank" rel="noopener"><%= company.website %></a>
+            <% } else { %>
+              — 
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <div class="text-muted">About</div>
+        <div><%= company.description || 'No description provided.' %></div>
+      </div>
+      <% if (company.notes) { %>
+      <div class="mb-2">
+        <div class="text-muted">Notes</div>
+        <div><%= company.notes %></div>
+      </div>
+      <% } %>
+    </div>
+  </div>
+
+</div>
+
+<%- include('../partials/footer') %>
+
+

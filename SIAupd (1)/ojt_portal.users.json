@@ -1,0 +1,146 @@
+[{
+  "_id": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "email": "juandc@gmail.com",
+  "password": "$2a$10$RWRnEy7SFmAFrFWH5pde9OU0fxd0Agccs.XEfpG.gSog31cfiHYoq",
+  "role": "student",
+  "isVerified": true,
+  "verifiedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "verifiedAt": {
+    "$date": "2025-12-12T08:50:45.897Z"
+  },
+  "lastLogin": {
+    "$date": "2025-12-14T12:33:49.615Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T08:35:27.497Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "email": "coordinator@psu.edu",
+  "password": "$2a$10$7ScJwXzZZaoGcq16S34Q.eV8LEz3kf3Wv5Stz.mQ8nc7mEy78o1eC",
+  "role": "coordinator",
+  "isVerified": true,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "lastLogin": {
+    "$date": "2026-01-05T17:33:56.610Z"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T04:43:45.743Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "email": "director@psu.edu",
+  "password": "$2a$10$szhgiBeUVCLQa6StOqfFLuRvrkOdL3Cxo.R2moA3r7Gsp7tjSxcza",
+  "role": "director",
+  "isVerified": true,
+  "verifiedBy": null,
+  "verifiedAt": null,
+  "lastLogin": {
+    "$date": "2026-01-05T15:47:08.392Z"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T04:43:45.948Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "email": "a@gmail.com",
+  "password": "$2a$10$rposyWSqFAX3wUfR9wkoN.O4pN3xX0KBezuZNXVREX7Wtq0HiuQhS",
+  "role": "student",
+  "isVerified": true,
+  "verifiedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "verifiedAt": {
+    "$date": "2025-11-27T11:41:10.495Z"
+  },
+  "lastLogin": {
+    "$date": "2025-12-04T17:43:57.402Z"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T04:52:02.936Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "email": "pat@gmail.com",
+  "password": "$2a$10$doXhIejwVoHGhU9raaKoQuhYMOQ5bS5dv5IO/a.Kf11XKQB5nKWjG",
+  "role": "student",
+  "isVerified": true,
+  "verifiedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "verifiedAt": {
+    "$date": "2025-12-04T17:51:57.783Z"
+  },
+  "lastLogin": {
+    "$date": "2025-12-05T12:54:38.682Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:50:44.539Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d3455066dc4ffe370cd"
+  },
+  "email": "kath@gmail.com",
+  "password": "$2a$10$32TkDhJrxC3Tb6yX8ISMf..7SbP4VMn/z.ccUa.4bacSSbDO.U3te",
+  "role": "student",
+  "isVerified": true,
+  "verifiedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "verifiedAt": {
+    "$date": "2025-12-11T01:24:54.986Z"
+  },
+  "lastLogin": {
+    "$date": "2025-12-11T01:25:43.138Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-11T01:24:04.257Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "email": "user2@gmail.com",
+  "password": "$2a$10$neWTTQqsg8utPOTgRelZFOnXdLEWiviVoLrnm0gkoTh5.Y5tP0jRu",
+  "role": "student",
+  "isVerified": true,
+  "verifiedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "verifiedAt": {
+    "$date": "2026-01-05T15:36:18.125Z"
+  },
+  "lastLogin": {
+    "$date": "2026-01-05T15:36:29.921Z"
+  },
+  "createdAt": {
+    "$date": "2026-01-05T15:35:04.992Z"
+  },
+  "__v": 0
+}]

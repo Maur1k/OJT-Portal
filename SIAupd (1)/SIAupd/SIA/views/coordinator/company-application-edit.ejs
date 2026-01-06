@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0">Update Application Status</h2>
+            <div class="text-muted">Company: <strong><%= application.companyName %></strong></div>
+        </div>
+        <a href="/coordinator/companies/<%= companyId %>" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back
+        </a>
+    </div>
+
+    <% if (query && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Applicant</h5>
+            <div><strong><%= profile ? profile.firstName + ' ' + (profile.middleName || '') + ' ' + profile.lastName : (application.studentId ? application.studentId.email : 'N/A') %></strong></div>
+            <div class="text-muted"><%= application.studentId ? application.studentId.email : '—' %></div>
+            <div class="text-muted">
+                <% if (profile) { %>
+                    <%= profile.studentNumber %> • <%= profile.course || '—' %> <% if (profile.section) { %> • <%= profile.section %><% } %>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="/coordinator/companies/<%= companyId %>/applications/<%= application._id %>">
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <select name="status" class="form-select" required>
+                        <option value="accepted" <%= application.status === 'accepted' ? 'selected' : '' %>>Accepted</option>
+                        <option value="rejected" <%= application.status === 'rejected' ? 'selected' : '' %>>Denied</option>
+                    </select>
+                    <div class="form-text">Choose Accepted or Denied.</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Comments (optional)</label>
+                    <textarea name="comment" class="form-control" rows="3" placeholder="Add a note for the student"><%= application.notes || '' %></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/coordinator/companies/<%= companyId %>" class="btn btn-outline-secondary ms-2">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

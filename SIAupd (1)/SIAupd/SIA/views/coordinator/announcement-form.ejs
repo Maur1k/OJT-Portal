@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4"><%= typeof announcement !== 'undefined' && announcement ? 'Edit Announcement' : 'Create Announcement' %></h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-danger"><%= error %></div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="<%= typeof announcement !== 'undefined' && announcement ? '/coordinator/announcements/' + announcement._id : '/coordinator/announcements' %>" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="title" name="title" value="<%= typeof announcement !== 'undefined' && announcement ? announcement.title : '' %>" required>
+                </div>
+                <div class="mb-3">
+                    <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
+                    <select class="form-control" id="type" name="type" required>
+                        <option value="memo" <%= typeof announcement !== 'undefined' && announcement && announcement.type === 'memo' ? 'selected' : '' %>>Memo</option>
+                        <option value="update" <%= typeof announcement !== 'undefined' && announcement && announcement.type === 'update' ? 'selected' : '' %>>Update</option>
+                        <option value="general" <%= typeof announcement !== 'undefined' && announcement && announcement.type === 'general' ? 'selected' : '' %>>General</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Content <span class="text-danger">*</span></label>
+                    <textarea class="form-control" id="content" name="content" rows="10" required><%= typeof announcement !== 'undefined' && announcement ? announcement.content : '' %></textarea>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="startDate" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" id="startDate" name="startDate" value="<%= typeof announcement !== 'undefined' && announcement && announcement.startDate ? new Date(announcement.startDate).toISOString().split('T')[0] : '' %>">
+                        <small class="form-text text-muted">Optional. When the announcement should become active.</small>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="endDate" class="form-label">End Date</label>
+                        <input type="date" class="form-control" id="endDate" name="endDate" value="<%= typeof announcement !== 'undefined' && announcement && announcement.endDate ? new Date(announcement.endDate).toISOString().split('T')[0] : '' %>">
+                        <small class="form-text text-muted">Optional. When the announcement should expire.</small>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" accept="image/jpeg,image/jpg,image/png">
+                    <small class="form-text text-muted">Optional. Only JPG, JPEG, and PNG files are allowed. Max size: 5MB</small>
+                    <% if (typeof announcement !== 'undefined' && announcement && announcement.imagePath) { %>
+                    <div class="mt-2">
+                        <p class="mb-1">Current image:</p>
+                        <img src="/<%= announcement.imagePath %>" alt="Announcement image" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+                    </div>
+                    <% } %>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <a href="/coordinator/announcements" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save Announcement</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

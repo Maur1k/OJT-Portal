@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Announcements</h2>
+
+    <% if (typeof announcements !== 'undefined' && announcements.length > 0) { %>
+    <% announcements.forEach(announcement => { %>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0"><%= announcement.title %></h5>
+            <span class="badge bg-primary"><%= announcement.type %></span>
+        </div>
+        <div class="card-body">
+            <% if (announcement.imagePath) { %>
+            <div class="mb-3">
+                <img src="/<%= announcement.imagePath %>" alt="Announcement image" class="img-fluid rounded" style="max-height: 400px; width: auto;">
+            </div>
+            <% } %>
+            <p class="card-text"><%= announcement.content.replace(/\n/g, '<br>') %></p>
+            <small class="text-muted">
+                <i class="bi bi-calendar"></i> <%= new Date(announcement.createdAt).toLocaleDateString() %>
+                <% if (announcement.postedBy) { %>
+                | <i class="bi bi-person"></i> <%= announcement.postedBy.email %>
+                <% } %>
+            </small>
+        </div>
+    </div>
+    <% }); %>
+
+    <!-- Pagination -->
+    <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+    <nav>
+        <ul class="pagination justify-content-center">
+            <% if (currentPage > 1) { %>
+            <li class="page-item">
+                <a class="page-link" href="?page=<%= currentPage - 1 %>">Previous</a>
+            </li>
+            <% } %>
+            <% for (let i = 1; i <= totalPages; i++) { %>
+            <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+            </li>
+            <% } %>
+            <% if (currentPage < totalPages) { %>
+            <li class="page-item">
+                <a class="page-link" href="?page=<%= currentPage + 1 %>">Next</a>
+            </li>
+            <% } %>
+        </ul>
+    </nav>
+    <% } %>
+    <% } else { %>
+    <div class="alert alert-info">No announcements available.</div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+

@@ -1,0 +1,198 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h2>Student Dashboard</h2>
+        <p>Overview of your MOA status, files, and account information</p>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="stat-cards-grid">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">MOA Status</h5>
+                <h3 class="mb-0">
+                    <% if (typeof moa !== 'undefined' && moa) { %>
+                        <span class="badge 
+                            <% if (moa.status === 'completed') { %>bg-success
+                            <% } else if (moa.status === 'for signature') { %>bg-info
+                            <% } else if (moa.status === 'revise') { %>bg-warning
+                            <% } else if (moa.status === 'denied') { %>bg-danger
+                            <% } else if (moa.status === 'accepted') { %>bg-success
+                            <% } else { %>bg-secondary<% } %>">
+                            <%= moa.status === 'for signature' ? 'For Signature' : moa.status.charAt(0).toUpperCase() + moa.status.slice(1) %>
+                        </span>
+                        <% if (moa.requestAccepted && moa.moaRecordStatus && moa.moaRecordStatus !== 'processing') { %>
+                            <br><small class="mt-1 d-block" style="opacity: 0.9;">MOA Record: <%= moa.moaRecordStatus === 'for signature' ? 'For Signature' : moa.moaRecordStatus.charAt(0).toUpperCase() + moa.moaRecordStatus.slice(1) %></small>
+                        <% } %>
+                        <% if (moa.requestForSignature && moa.moaRecordStatus && moa.moaRecordStatus !== 'for signature') { %>
+                            <br><small class="mt-1 d-block" style="opacity: 0.9;">MOA Record: <%= moa.moaRecordStatus === 'for signature' ? 'For Signature' : moa.moaRecordStatus.charAt(0).toUpperCase() + moa.moaRecordStatus.slice(1) %></small>
+                        <% } %>
+                    <% } else { %>
+                        <span class="badge bg-warning text-dark">Not Uploaded</span>
+                    <% } %>
+                </h3>
+            </div>
+        </div>
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Files Uploaded</h5>
+                <h3 class="mb-0"><%= typeof fileCount !== 'undefined' ? fileCount : 0 %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">Account Status</h5>
+                <h3 class="mb-0">
+                    <% if (user.isVerified) { %>
+                        <span class="badge bg-light text-success">Verified</span>
+                    <% } else { %>
+                        <span class="badge bg-warning text-dark">Pending</span>
+                    <% } %>
+                </h3>
+            </div>
+        </div>
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Announcements</h5>
+                <h3 class="mb-0"><%= typeof announcements !== 'undefined' ? announcements.length : 0 %></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">MOA Information</h5>
+                </div>
+                <div class="card-body">
+                    <% if (typeof moa !== 'undefined' && moa) { %>
+                    <div class="mb-3">
+                        <strong class="d-block mb-2">Status:</strong> 
+                        <span class="badge 
+                            <% if (moa.status === 'completed') { %>bg-success
+                            <% } else if (moa.status === 'for signature') { %>bg-info
+                            <% } else if (moa.status === 'revise') { %>bg-warning
+                            <% } else if (moa.status === 'denied') { %>bg-danger
+                            <% } else if (moa.status === 'accepted') { %>bg-success
+                            <% } else { %>bg-secondary<% } %>">
+                            <%= moa.status === 'for signature' ? 'For Signature' : moa.status.charAt(0).toUpperCase() + moa.status.slice(1) %>
+                        </span>
+                        <% if (moa.requestAccepted && moa.moaRecordStatus && moa.moaRecordStatus !== 'processing') { %>
+                            <span class="badge bg-info ms-2">MOA: <%= moa.moaRecordStatus === 'for signature' ? 'For Signature' : moa.moaRecordStatus.charAt(0).toUpperCase() + moa.moaRecordStatus.slice(1) %></span>
+                        <% } %>
+                        <% if (moa.requestForSignature && moa.moaRecordStatus && moa.moaRecordStatus !== 'for signature') { %>
+                            <span class="badge bg-info ms-2">MOA: <%= moa.moaRecordStatus === 'for signature' ? 'For Signature' : moa.moaRecordStatus.charAt(0).toUpperCase() + moa.moaRecordStatus.slice(1) %></span>
+                        <% } %>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="d-block mb-1">Uploaded:</strong>
+                        <span><i class="bi bi-calendar me-1"></i><%= new Date(moa.uploadedAt).toLocaleDateString() %></span>
+                    </div>
+                    <% if (typeof moaRequest !== 'undefined' && moaRequest && moaRequest.status === 'processing') { %>
+                    <div class="alert alert-info mb-3">
+                        <i class="bi bi-info-circle me-2"></i>Your MOA request is being reviewed by the coordinator.
+                    </div>
+                    <% } else if (typeof moaRequest !== 'undefined' && moaRequest && moaRequest.status === 'accepted') { %>
+                    <div class="alert alert-success mb-3">
+                        <i class="bi bi-check-circle me-2"></i>Your MOA request was accepted and is now in MOA management.
+                    </div>
+                    <% } else if (typeof moaRequest !== 'undefined' && moaRequest && moaRequest.status === 'for signature') { %>
+                    <div class="alert alert-info mb-3">
+                        <i class="bi bi-pen me-2"></i>Your MOA request is ready for signature and has been moved to MOA management.
+                    </div>
+                    <% } else if (typeof moaRequest !== 'undefined' && moaRequest && moaRequest.status === 'denied') { %>
+                    <div class="alert alert-danger mb-3">
+                        <i class="bi bi-x-circle me-2"></i>Your MOA request was denied. Please check coordinator comments.
+                    </div>
+                    <% } %>
+                    <% if (moa.coordinatorComment) { %>
+                    <div class="alert alert-warning mb-3">
+                        <strong>Coordinator Comment:</strong> <%= moa.coordinatorComment %>
+                    </div>
+                    <% } %>
+                    <a href="/student/moa" class="btn btn-primary">
+                        <i class="bi bi-file-earmark-text"></i> View MOA
+                    </a>
+                    <% } else { %>
+                    <div class="text-center py-4">
+                        <i class="bi bi-file-earmark-plus" style="font-size: 3rem; color: #6c757d; opacity: 0.5;"></i>
+                        <p class="text-muted mt-3 mb-4">You haven't uploaded your MOA yet.</p>
+                        <a href="/student/moa" class="btn btn-primary">
+                            <i class="bi bi-cloud-upload"></i> Upload MOA
+                        </a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">Quick Actions</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="/student/profile" class="btn btn-outline-primary">
+                            <i class="bi bi-person"></i> View Profile
+                        </a>
+                        <a href="/student/moa" class="btn btn-outline-primary">
+                            <i class="bi bi-cloud-upload"></i> Upload MOA
+                        </a>
+                        <a href="/student/moa-requests" class="btn btn-outline-primary">
+                            <i class="bi bi-file-earmark-text"></i> MOA Requests
+                        </a>
+                        <a href="/student/companies" class="btn btn-outline-primary">
+                            <i class="bi bi-building"></i> Companies
+                        </a>
+                        <a href="/student/requirements" class="btn btn-outline-primary">
+                            <i class="bi bi-folder-check"></i> Requirements
+                        </a>
+                        <a href="/student/announcements" class="btn btn-outline-primary">
+                            <i class="bi bi-megaphone"></i> Announcements
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <% if (typeof announcements !== 'undefined' && announcements.length > 0) { %>
+    <div class="card mt-4">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Announcements</h5>
+                <a href="/student/announcements" class="btn btn-sm btn-primary">
+                    <i class="bi bi-arrow-right"></i> View All
+                </a>
+            </div>
+        </div>
+        <div class="card-body">
+            <% announcements.forEach((announcement, index) => { %>
+            <div class="<%= index < announcements.length - 1 ? 'mb-3 pb-3 border-bottom' : '' %>">
+                <h6 class="mb-2"><%= announcement.title %></h6>
+                <% if (announcement.imagePath) { %>
+                <div class="mb-2">
+                    <img src="/<%= announcement.imagePath %>" alt="Announcement image" class="img-fluid rounded" style="max-height: 150px; width: auto; border: 1px solid rgba(0, 56, 168, 0.1);">
+                </div>
+                <% } %>
+                <p class="text-muted mb-2"><%= announcement.content.substring(0, 200) %>...</p>
+                <small class="text-muted">
+                    <i class="bi bi-calendar"></i> <%= new Date(announcement.createdAt).toLocaleDateString() %>
+                </small>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+

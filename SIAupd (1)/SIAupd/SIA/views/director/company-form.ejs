@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add Company</h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="/director/companies">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Company/Agency Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= typeof company !== 'undefined' && company ? company.name : '' %>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
+                        <select class="form-select" id="type" name="type" required>
+                            <option value="">Select Type</option>
+                            <option value="company" <%= typeof company !== 'undefined' && company && company.type === 'company' ? 'selected' : '' %>>Company</option>
+                            <option value="agency" <%= typeof company !== 'undefined' && company && company.type === 'agency' ? 'selected' : '' %>>Agency</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="address" name="address" value="<%= typeof company !== 'undefined' && company ? company.address : '' %>" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="contact" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="contact" name="contact" value="<%= typeof company !== 'undefined' && company ? company.contact : '' %>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= typeof company !== 'undefined' && company ? company.email : '' %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">Website</label>
+                    <input type="url" class="form-control" id="website" name="website" placeholder="https://example.com" value="<%= typeof company !== 'undefined' && company ? company.website : '' %>">
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="/director/companies" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Add Company</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

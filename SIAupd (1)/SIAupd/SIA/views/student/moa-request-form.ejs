@@ -1,0 +1,89 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="page-headline">
+        <h2>New MOA Request</h2>
+        <a href="/student/moa-requests" class="btn btn-outline-primary">
+            <i class="bi bi-arrow-left"></i> Back to Requests
+        </a>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">MOA Request Form</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="/student/moa-requests" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Company/Agency Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="companyName" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Type <span class="text-danger">*</span></label>
+                        <select class="form-select" name="companyType" required>
+                            <option value="">Select type...</option>
+                            <option value="company">Company</option>
+                            <option value="agency">Agency</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Company/Agency Address <span class="text-danger">*</span></label>
+                    <textarea class="form-control" name="companyAddress" rows="2" required></textarea>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Contact Number <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" name="companyContact" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="companyEmail">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Website</label>
+                    <input type="url" class="form-control" name="companyWebsite" placeholder="https://">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">MOA PDF File <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" name="moaFile" accept=".pdf" required>
+                    <small class="text-muted">Only PDF files are allowed. Maximum file size: 10MB</small>
+                </div>
+
+                <div class="alert alert-info">
+                    <i class="bi bi-info-circle"></i> <strong>Note:</strong> Please ensure all information is accurate. Once submitted, your request will be sent to the coordinator for review.
+                </div>
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-send"></i> Submit Request
+                    </button>
+                    <a href="/student/moa-requests" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "693c5b1eb6e6d7b5fb2a797b"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "companyName": "VZION",
+  "companyType": "company",
+  "companyAddress": "Santa Barbara, Pangasinan",
+  "companyContact": "09123456789",
+  "companyEmail": "vzion@gmail.com",
+  "companyWebsite": "",
+  "filePath": "uploads\\moa-requests\\moa-request-693bd3cf3c63c81c5dc1b310-1765563166041-859214792.pdf",
+  "fileName": "moa-request-693bd3cf3c63c81c5dc1b310-1765563166041-859214792.pdf",
+  "fileSize": 335952,
+  "mimeType": "application/pdf",
+  "status": "accepted",
+  "coordinatorId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "coordinatorComment": "",
+  "approvedCompanyId": {
+    "$oid": "693c5f9667b4fa3b4a9a452a"
+  },
+  "reviewedAt": {
+    "$date": "2025-12-12T18:44:11.567Z"
+  },
+  "submittedAt": {
+    "$date": "2025-12-12T18:12:46.046Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-12T18:44:11.589Z"
+  },
+  "__v": 0
+}]

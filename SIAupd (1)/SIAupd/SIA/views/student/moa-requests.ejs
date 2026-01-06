@@ -1,0 +1,113 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="page-headline">
+        <h2>MOA Requests</h2>
+        <a href="/student/moa-requests/new" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> New Request
+        </a>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof query !== 'undefined' && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof requests !== 'undefined' && requests.length > 0) { %>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Company/Agency</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% requests.forEach(request => { %>
+                        <tr>
+                            <td>
+                                <strong><%= request.companyName %></strong><br>
+                                <small class="text-muted"><%= request.companyAddress %></small>
+                            </td>
+                            <td>
+                                <span class="badge bg-info"><%= request.companyType === 'company' ? 'Company' : 'Agency' %></span>
+                            </td>
+                            <td>
+                                <span class="badge 
+                                    <% if (request.status === 'accepted') { %>bg-success
+                                    <% } else if (request.status === 'denied') { %>bg-danger
+                                    <% } else { %>bg-warning<% } %>">
+                                    <%= request.status.charAt(0).toUpperCase() + request.status.slice(1) %>
+                                </span>
+                            </td>
+                            <td><%= new Date(request.submittedAt).toLocaleDateString() %></td>
+                            <td>
+                                <a href="/<%= request.filePath %>" target="_blank" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-pdf"></i> View PDF
+                                </a>
+                                <% if (request.coordinatorComment) { %>
+                                <button class="btn btn-sm btn-outline-info" data-bs-toggle="modal" data-bs-target="#commentModal<%= request._id %>">
+                                    <i class="bi bi-chat-left-text"></i> Comment
+                                </button>
+                                <% } %>
+                            </td>
+                        </tr>
+
+                        <!-- Comment Modal -->
+                        <% if (request.coordinatorComment) { %>
+                        <div class="modal fade" id="commentModal<%= request._id %>" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Coordinator Comment</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><%= request.coordinatorComment %></p>
+                                        <% if (request.reviewedAt) { %>
+                                        <small class="text-muted">Reviewed on: <%= new Date(request.reviewedAt).toLocaleDateString() %></small>
+                                        <% } %>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <% } else { %>
+    <div class="card">
+        <div class="card-body text-center py-5">
+            <i class="bi bi-inbox" style="font-size: 3rem; color: var(--psu-muted);"></i>
+            <h5 class="mt-3">No MOA Requests</h5>
+            <p class="text-muted">You haven't submitted any MOA requests yet.</p>
+            <a href="/student/moa-requests/new" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Submit Your First Request
+            </a>
+        </div>
+    </div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+

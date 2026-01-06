@@ -1,0 +1,102 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Student Repository - <%= typeof profile !== 'undefined' && profile ? profile.firstName + ' ' + profile.lastName : 'Student' %></h2>
+
+    <!-- Search and Filter -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="GET" action="/director/students/<%= student._id %>/repository" class="row g-3">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="search" placeholder="Search files..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-control" name="fileType">
+                        <option value="all" <%= typeof fileType !== 'undefined' && fileType === 'all' ? 'selected' : '' %>>All Types</option>
+                        <option value="evaluation" <%= typeof fileType !== 'undefined' && fileType === 'evaluation' ? 'selected' : '' %>>Evaluation</option>
+                        <option value="documentation" <%= typeof fileType !== 'undefined' && fileType === 'documentation' ? 'selected' : '' %>>Documentation</option>
+                        <option value="other" <%= typeof fileType !== 'undefined' && fileType === 'other' ? 'selected' : '' %>>Other</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Filter</button>
+                </div>
+                <div class="col-md-3">
+                    <a href="/director/students/<%= student._id %>/repository" class="btn btn-secondary w-100">Clear</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Files List -->
+    <div class="card">
+        <div class="card-body">
+            <% if (typeof files !== 'undefined' && files.length > 0) { %>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>File Name</th>
+                            <th>Type</th>
+                            <th>Size</th>
+                            <th>Uploaded</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% files.forEach(file => { %>
+                        <tr>
+                            <td>
+                                <i class="bi bi-file-earmark"></i> <%= file.originalName %>
+                                <% if (file.description) { %>
+                                <br><small class="text-muted"><%= file.description %></small>
+                                <% } %>
+                            </td>
+                            <td><span class="badge bg-info"><%= file.fileType %></span></td>
+                            <td><%= (file.fileSize / 1024).toFixed(2) %> KB</td>
+                            <td><%= new Date(file.uploadedAt).toLocaleDateString() %></td>
+                            <td>
+                                <a href="/director/students/<%= student._id %>/repository/files/<%= file._id %>/view" target="_blank" class="btn btn-sm btn-info">
+                                    <i class="bi bi-eye"></i> View
+                                </a>
+                                <a href="/<%= file.filePath %>" download class="btn btn-sm btn-primary">
+                                    <i class="bi bi-download"></i> Download
+                                </a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <% if (currentPage > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage - 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof fileType !== 'undefined' && fileType !== 'all' ? '&fileType=' + fileType : '' %>">Previous</a>
+                    </li>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link" href="?page=<%= i %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof fileType !== 'undefined' && fileType !== 'all' ? '&fileType=' + fileType : '' %>"><%= i %></a>
+                    </li>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage + 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %><%= typeof fileType !== 'undefined' && fileType !== 'all' ? '&fileType=' + fileType : '' %>">Next</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+            <% } %>
+            <% } else { %>
+            <p class="text-center text-muted py-5">No files uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

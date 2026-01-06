@@ -1,0 +1,174 @@
+[{
+  "_id": {
+    "$oid": "693bd3cf3c63c81c5dc1b312"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "studentNumber": "12345",
+  "firstName": "juan",
+  "lastName": "dela cruz",
+  "middleName": "bitangkol",
+  "course": "BSIT",
+  "yearLevel": "4th Year",
+  "section": "C",
+  "contactNumber": "09123456789",
+  "address": "Urdneta",
+  "status": "Processing",
+  "profilePhoto": "/uploads/students/student-12345-1765528527469-312794988.jpg",
+  "emergencyContact": {
+    "name": "Tanggol",
+    "relationship": "Father",
+    "contactNumber": "09123456789"
+  },
+  "companyName": "Ambot sa imo",
+  "companyAddress": "Urdaneta",
+  "companyContact": "09123456789",
+  "supervisorName": "Christian Suguitan",
+  "supervisorPosition": "CEO",
+  "supervisorEmail": "christianfranzsug@gmail.com",
+  "supervisorContact": "09123456789",
+  "ojtStartDate": {
+    "$date": "2025-12-12T00:00:00.000Z"
+  },
+  "ojtEndDate": {
+    "$date": "2026-01-11T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T08:35:27.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-12T08:35:27.616Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d8f3632149636fce491c"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "studentNumber": "22ur0665",
+  "firstName": "josh",
+  "lastName": "delos santos",
+  "middleName": "sada",
+  "course": "bsit",
+  "yearLevel": "4th Year",
+  "section": "4c",
+  "contactNumber": "09691638486",
+  "address": "rosales, pangasinan",
+  "emergencyContact": {
+    "name": "dffwe",
+    "relationship": "single",
+    "contactNumber": "09691638486"
+  },
+  "companyName": "dasddas",
+  "companyAddress": "dasdadad",
+  "companyContact": "09691638486",
+  "supervisorName": "dasda",
+  "supervisorPosition": "dasdad",
+  "supervisorEmail": "dsa@gmail.com",
+  "supervisorContact": "09691638486",
+  "ojtStartDate": {
+    "$date": "2026-02-12T00:00:00.000Z"
+  },
+  "ojtEndDate": {
+    "$date": "2027-02-12T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T04:52:03.086Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-04T17:43:34.084Z"
+  },
+  "__v": 0,
+  "status": "Approve"
+},
+{
+  "_id": {
+    "$oid": "6931c9f450d1cba6b2d078a1"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "studentNumber": "22ur",
+  "firstName": "Patricia",
+  "lastName": "Puaso",
+  "middleName": "Dp",
+  "course": "BSIT",
+  "yearLevel": "4th Year",
+  "section": "4C",
+  "contactNumber": "123456",
+  "address": "San Jacinto",
+  "status": "Approve",
+  "profilePhoto": "/uploads/students/student-22ur-1764870644510-893337864.jpeg",
+  "emergencyContact": {
+    "name": "Marites",
+    "relationship": "Single",
+    "contactNumber": "123456"
+  },
+  "companyName": "None",
+  "companyAddress": "None",
+  "companyContact": "123456",
+  "supervisorName": "Kathleen",
+  "supervisorPosition": "Faculty",
+  "supervisorEmail": "kath@gmail.com",
+  "supervisorContact": "1234567",
+  "ojtStartDate": {
+    "$date": "2025-12-10T00:00:00.000Z"
+  },
+  "ojtEndDate": {
+    "$date": "2026-01-01T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:50:44.628Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-11T01:33:36.676Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda294fc4df1756a75d69"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "studentNumber": "1234567",
+  "firstName": "juan",
+  "lastName": "dela cruz",
+  "middleName": "",
+  "course": "Bachelor of Science in Information Technology",
+  "yearLevel": "4th Year",
+  "section": "",
+  "contactNumber": "09123456789",
+  "address": "Urdneta",
+  "status": "Processing",
+  "emergencyContact": {
+    "name": "",
+    "relationship": "",
+    "contactNumber": ""
+  },
+  "companyName": "VZION",
+  "companyAddress": "Urdaneta",
+  "companyContact": "091234567789",
+  "supervisorName": "Christian Suguitan",
+  "supervisorPosition": "",
+  "supervisorEmail": "",
+  "supervisorContact": "",
+  "ojtStartDate": {
+    "$date": "2026-01-05T00:00:00.000Z"
+  },
+  "ojtEndDate": {
+    "$date": "2026-03-10T00:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2026-01-05T15:35:05.081Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-05T15:35:05.083Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,91 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Verified Students</h2>
+
+    <!-- Search -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="GET" action="/director/students" class="row g-3">
+                <div class="col-md-10">
+                    <input type="text" class="form-control" name="search" placeholder="Search by name, student number, or course..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Students Table -->
+    <div class="card">
+        <div class="card-body">
+            <% if (typeof students !== 'undefined' && students.length > 0) { %>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Student Number</th>
+                            <th>Name</th>
+                            <th>Course</th>
+                            <th>Email</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% students.forEach(student => { %>
+                        <tr>
+                            <td><%= student.profile ? student.profile.studentNumber : 'N/A' %></td>
+                            <td>
+                                <%= student.profile ? student.profile.firstName + ' ' + (student.profile.middleName || '') + ' ' + student.profile.lastName : 'N/A' %>
+                            </td>
+                            <td><%= student.profile ? student.profile.course : 'N/A' %></td>
+                            <td><%= student.email %></td>
+                            <td>
+                                <% if (student.profile && student.profile.status) { %>
+                                <span class="badge bg-info"><%= student.profile.status %></span>
+                                <% } else { %>
+                                <span class="badge bg-secondary">Processing (Director side)</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <a href="/director/students/<%= student._id %>" class="btn btn-sm btn-primary">View</a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <% if (typeof totalPages !== 'undefined' && totalPages > 1) { %>
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <% if (currentPage > 1) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage - 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %>">Previous</a>
+                    </li>
+                    <% } %>
+                    <% for (let i = 1; i <= totalPages; i++) { %>
+                    <li class="page-item <%= i === currentPage ? 'active' : '' %>">
+                        <a class="page-link" href="?page=<%= i %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %>"><%= i %></a>
+                    </li>
+                    <% } %>
+                    <% if (currentPage < totalPages) { %>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=<%= currentPage + 1 %><%= typeof search !== 'undefined' && search ? '&search=' + search : '' %>">Next</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+            <% } %>
+            <% } else { %>
+            <p class="text-center text-muted py-5">No verified students found.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

@@ -1,0 +1,140 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Student Details</h2>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof student !== 'undefined' && student) { %>
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Account Information</h5>
+            <% if (!student.isVerified) { %>
+            <form method="POST" action="/coordinator/students/<%= student._id %>/verify" class="d-inline">
+                <button type="submit" class="btn btn-success btn-sm">Verify Account</button>
+            </form>
+            <% } else { %>
+            <span class="badge bg-success">Verified</span>
+            <% } %>
+        </div>
+        <div class="card-body">
+            <p><strong>Email:</strong> <%= student.email %></p>
+            <p><strong>Status:</strong> 
+                <% if (student.isVerified) { %>
+                <span class="badge bg-success">Verified</span>
+                <% if (student.verifiedAt) { %>
+                on <%= new Date(student.verifiedAt).toLocaleDateString() %>
+                <% } %>
+                <% } else { %>
+                <span class="badge bg-warning">Pending Verification</span>
+                <% } %>
+            </p>
+        </div>
+    </div>
+
+    <% if (typeof profile !== 'undefined' && profile) { %>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Student Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-start">
+                <div class="col-md-4 col-lg-3 text-center mb-4 mb-md-0">
+                    <% if (profile.profilePhoto) { %>
+                        <img src="<%= profile.profilePhoto %>" alt="Profile photo of <%= profile.firstName %> <%= profile.lastName %>" class="student-photo img-fluid shadow-sm">
+                    <% } else { %>
+                        <div class="student-photo-placeholder d-flex flex-column justify-content-center align-items-center shadow-sm">
+                            <span class="fw-bold text-muted">No Photo</span>
+                            <small class="text-muted">Not provided</small>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Student Number:</strong> <%= profile.studentNumber %></p>
+                            <p><strong>Name:</strong> <%= profile.firstName %> <%= profile.middleName || '' %> <%= profile.lastName %></p>
+                            <p><strong>Course:</strong> <%= profile.course %></p>
+                            <p><strong>Year Level:</strong> <%= profile.yearLevel %></p>
+                            <p><strong>Section:</strong> <%= profile.section || 'N/A' %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Contact Number:</strong> <%= profile.contactNumber %></p>
+                            <p><strong>Address:</strong> <%= profile.address %></p>
+                            <% if (profile.emergencyContact && profile.emergencyContact.name) { %>
+                            <p><strong>Emergency Contact:</strong> <%= profile.emergencyContact.name %> (<%= profile.emergencyContact.relationship %>) - <%= profile.emergencyContact.contactNumber %></p>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Company Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Company Name:</strong> <%= profile.companyName %></p>
+                    <p><strong>Company Address:</strong> <%= profile.companyAddress %></p>
+                    <p><strong>Company Contact:</strong> <%= profile.companyContact %></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Supervisor Name:</strong> <%= profile.supervisorName %></p>
+                    <p><strong>Supervisor Position:</strong> <%= profile.supervisorPosition || 'N/A' %></p>
+                    <p><strong>Supervisor Email:</strong> <%= profile.supervisorEmail || 'N/A' %></p>
+                    <p><strong>Supervisor Contact:</strong> <%= profile.supervisorContact || 'N/A' %></p>
+                </div>
+            </div>
+            <hr>
+            <p><strong>OJT Period:</strong> <%= new Date(profile.ojtStartDate).toLocaleDateString() %> to <%= new Date(profile.ojtEndDate).toLocaleDateString() %></p>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">MOA Status</h5>
+        </div>
+        <div class="card-body">
+            <% if (typeof moa !== 'undefined' && moa) { %>
+            <p><strong>Status:</strong> 
+                <span class="badge 
+                    <% if (moa.status === 'completed') { %>bg-success
+                    <% } else if (moa.status === 'for signature') { %>bg-info
+                    <% } else if (moa.status === 'revise') { %>bg-warning
+                    <% } else { %>bg-secondary<% } %>">
+                    <%= moa.status %>
+                </span>
+            </p>
+            <a href="/coordinator/moa" class="btn btn-primary">Manage MOA</a>
+            <% } else { %>
+            <p class="text-muted">MOA not uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Repository</h5>
+            <a href="/coordinator/students/<%= student._id %>/repository" class="btn btn-sm btn-primary">View Repository</a>
+        </div>
+        <div class="card-body">
+            <p><strong>Total Files:</strong> <%= typeof fileCount !== 'undefined' ? fileCount : 0 %></p>
+        </div>
+    </div>
+    <% } else { %>
+    <div class="alert alert-danger">Student not found.</div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+

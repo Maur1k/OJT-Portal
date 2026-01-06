@@ -1,0 +1,327 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0">Requirements Checklist</h2>
+            <p class="text-muted mb-0">Track, upload, and view your OJT pre and post requirements.</p>
+        </div>
+        <div class="text-end">
+            <div class="fw-semibold">Completed <%= completedRequirements %> / <%= totalRequirements %></div>
+            <small class="text-muted">Progress auto-updates after each upload.</small>
+        </div>
+    </div>
+
+    <% if (query && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (query && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                    <h5 class="card-title mb-1">Overall Progress</h5>
+                    <small class="text-muted">Upload the required documents to unlock your OJT steps.</small>
+                </div>
+                <div class="fw-semibold fs-5"><%= progress %>%</div>
+            </div>
+            <div class="progress" style="height: 18px;">
+                <div class="progress-bar bg-success" role="progressbar" style="width: <%= progress %>%;" aria-valuenow="<%= progress %>" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0">Pre-deployment Requirements</h5>
+                <small class="text-muted">Complete these before starting your OJT.</small>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Status</th>
+                            <th>Template</th>
+                            <th>Last Upload</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% preRequirements.forEach(item => { %>
+                        <tr>
+                            <td><%= item.label %></td>
+                            <td>
+                                <% if (item.file) { %>
+                                    <span class="badge bg-success text-white">Uploaded</span>
+                                <% } else { %>
+                                    <span class="badge bg-light text-dark border">Pending</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (item.templateUrl) { %>
+                                    <a href="<%= item.templateUrl %>" class="btn btn-link btn-sm text-decoration-none" download title="Download template">
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                <% } else { %>
+                                    &mdash;
+                                <% } %>
+                            </td>
+                            <td><%= item.file ? new Date(item.file.uploadedAt).toLocaleString() : '—' %></td>
+                            <td class="text-end">
+                                <% if (item.file) { %>
+                                    <a href="/<%= item.file.filePath %>" target="_blank" class="btn btn-outline-secondary btn-sm me-2" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <button 
+                                        class="btn btn-outline-primary btn-sm me-2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>"
+                                        title="Replace">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                    </button>
+                                    <form method="POST" action="/student/requirements/delete/<%= item.file._id %>" class="d-inline" onsubmit="return confirm('Remove this requirement file?');">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" title="Remove">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                <% } else { %>
+                                    <button 
+                                        class="btn btn-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>">
+                                        <i class="bi bi-upload"></i> Upload
+                                    </button>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0">Legal Forms</h5>
+                <small class="text-muted">Required agreements and waivers.</small>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Status</th>
+                            <th>Template</th>
+                            <th>Last Upload</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% legalRequirements.forEach(item => { %>
+                        <tr>
+                            <td><%= item.label %></td>
+                            <td>
+                                <% if (item.file) { %>
+                                    <span class="badge bg-success text-white">Uploaded</span>
+                                <% } else { %>
+                                    <span class="badge bg-light text-dark border">Pending</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (item.templateUrl) { %>
+                                    <a href="<%= item.templateUrl %>" class="btn btn-link btn-sm text-decoration-none" download title="Download template">
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                <% } else { %>
+                                    &mdash;
+                                <% } %>
+                            </td>
+                            <td><%= item.file ? new Date(item.file.uploadedAt).toLocaleString() : '—' %></td>
+                            <td class="text-end">
+                                <% if (item.file) { %>
+                                    <a href="/<%= item.file.filePath %>" target="_blank" class="btn btn-outline-secondary btn-sm me-2" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <button 
+                                        class="btn btn-outline-primary btn-sm me-2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>"
+                                        title="Replace">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                    </button>
+                                    <form method="POST" action="/student/requirements/delete/<%= item.file._id %>" class="d-inline" onsubmit="return confirm('Remove this requirement file?');">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" title="Remove">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                <% } else { %>
+                                    <button 
+                                        class="btn btn-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>">
+                                        <i class="bi bi-upload"></i> Upload
+                                    </button>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                <h5 class="mb-0">Post-deployment Requirements</h5>
+                <small class="text-muted">Submit these after completing your OJT.</small>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table align-middle">
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Status</th>
+                            <th>Template</th>
+                            <th>Last Upload</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% postRequirements.forEach(item => { %>
+                        <tr>
+                            <td><%= item.label %></td>
+                            <td>
+                                <% if (item.file) { %>
+                                    <span class="badge bg-success text-white">Uploaded</span>
+                                <% } else { %>
+                                    <span class="badge bg-light text-dark border">Pending</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (item.templateUrl) { %>
+                                    <a href="<%= item.templateUrl %>" class="btn btn-link btn-sm text-decoration-none" download title="Download template">
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                <% } else { %>
+                                    &mdash;
+                                <% } %>
+                            </td>
+                            <td><%= item.file ? new Date(item.file.uploadedAt).toLocaleString() : '—' %></td>
+                            <td class="text-end">
+                                <% if (item.file) { %>
+                                    <a href="/<%= item.file.filePath %>" target="_blank" class="btn btn-outline-secondary btn-sm me-2" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <button 
+                                        class="btn btn-outline-primary btn-sm me-2"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>"
+                                        title="Replace">
+                                        <i class="bi bi-arrow-repeat"></i>
+                                    </button>
+                                    <form method="POST" action="/student/requirements/delete/<%= item.file._id %>" class="d-inline" onsubmit="return confirm('Remove this requirement file?');">
+                                        <button type="submit" class="btn btn-outline-danger btn-sm" title="Remove">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                <% } else { %>
+                                    <button 
+                                        class="btn btn-primary btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#uploadRequirementModal"
+                                        data-requirement-key="<%= item.key %>"
+                                        data-requirement-label="<%= item.label %>">
+                                        <i class="bi bi-upload"></i> Upload
+                                    </button>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Upload Modal -->
+<div class="modal fade" id="uploadRequirementModal" tabindex="-1" aria-labelledby="uploadRequirementModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadRequirementModalLabel">Upload Requirement</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="/student/requirements/upload" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <input type="hidden" name="requirementKey" id="requirementKeyInput">
+                    <input type="hidden" name="fileType" id="fileTypeInput">
+                    <div class="mb-3">
+                        <label class="form-label">Requirement</label>
+                        <input type="text" class="form-control" id="requirementLabelInput" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">File (PDF or Image) <span class="text-danger">*</span></label>
+                        <input type="file" name="file" class="form-control" accept=".pdf,.jpg,.jpeg,.png" required>
+                        <small class="text-muted">Maximum file size: 10MB</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    const uploadModal = document.getElementById('uploadRequirementModal');
+    if (uploadModal) {
+        uploadModal.addEventListener('show.bs.modal', event => {
+            const button = event.relatedTarget;
+            const requirementKey = button.getAttribute('data-requirement-key');
+            const requirementLabel = button.getAttribute('data-requirement-label');
+
+            uploadModal.querySelector('#requirementKeyInput').value = requirementKey;
+            uploadModal.querySelector('#fileTypeInput').value = requirementKey; // helps route storage
+            uploadModal.querySelector('#requirementLabelInput').value = requirementLabel;
+        });
+    }
+</script>
+
+<%- include('../partials/footer') %>
+
+

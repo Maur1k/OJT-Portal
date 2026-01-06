@@ -1,0 +1,131 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="mb-0">Companies Applied by Students</h2>
+        <a href="/director/companies/create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Add Company
+        </a>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof query !== 'undefined' && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card mb-3">
+        <div class="card-body">
+            <form method="GET" action="/director/companies" class="row g-3">
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="search" placeholder="Search by company or agency name..." value="<%= typeof search !== 'undefined' ? search : '' %>">
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" name="type">
+                        <option value="all" <%= typeof type !== 'undefined' && type === 'all' ? 'selected' : '' %>>All Types</option>
+                        <option value="company" <%= typeof type !== 'undefined' && type === 'company' ? 'selected' : '' %>>Company</option>
+                        <option value="agency" <%= typeof type !== 'undefined' && type === 'agency' ? 'selected' : '' %>>Agency</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" name="status">
+                        <option value="all" <%= typeof status !== 'undefined' && status === 'all' ? 'selected' : '' %>>All Status</option>
+                        <option value="pending" <%= typeof status !== 'undefined' && status === 'pending' ? 'selected' : '' %>>Pending</option>
+                        <option value="accepted" <%= typeof status !== 'undefined' && status === 'accepted' ? 'selected' : '' %>>Accepted</option>
+                        <option value="rejected" <%= typeof status !== 'undefined' && status === 'rejected' ? 'selected' : '' %>>Rejected</option>
+                    </select>
+                </div>
+                <div class="col-md-12 col-lg-3">
+                    <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <% if (typeof companies !== 'undefined' && companies.length > 0) { %>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Company / Agency</th>
+                            <th>Type</th>
+                            <th>Slot</th>
+                            <th>Status (Pending)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% companies.forEach(company => { %>
+                        <tr>
+                            <td>
+                                <strong><%= company.companyName %></strong>
+                                <div class="text-muted small">
+                                    <%= company.address %>
+                                    <% if (company.contact) { %>
+                                        · <i class="bi bi-telephone"></i> <%= company.contact %>
+                                    <% } %>
+                                    <% if (company.email) { %>
+                                        · <i class="bi bi-envelope"></i> <%= company.email %>
+                                    <% } %>
+                                </div>
+                                <% if (company.website) { %>
+                                <div class="small">
+                                    <a href="<%= company.website %>" target="_blank" rel="noopener">Visit website</a>
+                                </div>
+                                <% } %>
+                                <% if (company.approvedCompany) { %>
+                                <span class="badge bg-success mt-2 d-inline-block">Approved in MOA</span>
+                                <% } %>
+                            </td>
+                            <td>
+                                <span class="badge <%= company.companyType === 'agency' ? 'bg-info' : 'bg-primary' %>">
+                                    <%= company.companyType === 'agency' ? 'Agency' : 'Company' %>
+                                </span>
+                            </td>
+                            <td>
+                                <% 
+                                    const acceptedCount = company.acceptedCount || 0;
+                                    const slotLimit = company.slotLimit || 50;
+                                    const isFull = company.isFull || false;
+                                %>
+                                <strong class="<%= isFull ? 'text-danger' : '' %>">
+                                    <%= acceptedCount %> / <%= slotLimit %>
+                                </strong>
+                                <% if (isFull) { %>
+                                    <div class="text-danger small">Full</div>
+                                <% } else { %>
+                                    <div class="text-muted small"><%= company.slotsRemaining || (slotLimit - acceptedCount) %> remaining</div>
+                                <% } %>
+                            </td>
+                            <td>
+                                <span class="badge bg-warning text-dark">Pending: <%= company.statusCounts.pending || 0 %></span>
+                            </td>
+                            <td>
+                                <a href="/director/companies/<%= company.companyId ? company.companyId : encodeURIComponent(company.companyName) %>" class="btn btn-sm btn-primary">
+                                    View
+                                </a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <% } else { %>
+            <p class="text-center text-muted py-5 mb-0">No company applications found.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

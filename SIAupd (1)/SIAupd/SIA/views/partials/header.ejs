@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= typeof title !== 'undefined' ? title + ' - ' : '' %>OJT Portal - PSU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="icon" type="image/svg+xml" href="/images/psu-logo.svg">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<% const isAuthenticated = typeof user !== 'undefined' && user; %>
+<body class="<%= isAuthenticated ? 'is-authenticated' : 'is-public' %>">
+    <div class="app-shell">
+        <nav class="psu-navbar">
+            <a class="brand" href="<%= isAuthenticated ? '/' : '/home' %>">
+                <img src="/images/psu-logo.svg" alt="Pangasinan State University" class="brand-logo">
+                <div class="brand-text">
+                    <h1>Pangasinan State University</h1>
+                    <span>Urdaneta City Campus • OJT Management Portal</span>
+                </div>
+            </a>
+
+            <% if (isAuthenticated) { %>
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="toggleNav()">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <% if (user.role === 'student') { %>
+                    <a class="nav-link" href="/student/dashboard">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a class="nav-link" href="/student/profile">
+                        <i class="bi bi-person"></i> Profile
+                    </a>
+                    <a class="nav-link" href="/student/moa-requests">
+                        <i class="bi bi-file-earmark-text"></i> MOA Requests
+                    </a>
+                    <a class="nav-link" href="/student/companies">
+                        <i class="bi bi-building"></i> Companies
+                    </a>
+                    <a class="nav-link" href="/student/requirements">
+                        <i class="bi bi-folder-check"></i> Requirements
+                    </a>
+                    <a class="nav-link" href="/student/announcements">
+                        <i class="bi bi-megaphone"></i> Announcements
+                    </a>
+                <% } else if (user.role === 'coordinator') { %>
+                    <a class="nav-link" href="/coordinator/dashboard">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a class="nav-link" href="/coordinator/students">
+                        <i class="bi bi-people"></i> Students
+                    </a>
+                    <a class="nav-link" href="/coordinator/moa">
+                        <i class="bi bi-file-earmark-text"></i> MOA Management
+                    </a>
+                    <a class="nav-link" href="/coordinator/companies">
+                        <i class="bi bi-building"></i> Companies
+                    </a>
+                    <a class="nav-link" href="/coordinator/moa-requests">
+                        <i class="bi bi-inbox"></i> MOA Requests
+                    </a>
+                    <a class="nav-link" href="/coordinator/announcements">
+                        <i class="bi bi-megaphone"></i> Announcements
+                    </a>
+                <% } else if (user.role === 'director') { %>
+                    <a class="nav-link" href="/director/dashboard">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                    <a class="nav-link" href="/director/students">
+                        <i class="bi bi-people"></i> Students
+                    </a>
+                    <a class="nav-link" href="/director/moa">
+                        <i class="bi bi-file-earmark-check"></i> MOA for Signature
+                    </a>
+                    <a class="nav-link" href="/director/companies">
+                        <i class="bi bi-building"></i> Companies
+                    </a>
+                    <a class="nav-link" href="/director/moa-requests">
+                        <i class="bi bi-inbox"></i> MOA Requests
+                    </a>
+                <% } %>
+            </div>
+            <div class="user-menu dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i>
+                    <span><%= user.email %></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/auth/logout">Logout</a></li>
+                </ul>
+            </div>
+            <% } else { %>
+            <div class="nav-links">
+                <a class="nav-link" href="/auth/login">Login</a>
+                <a class="nav-link" href="/auth/register">Register</a>
+            </div>
+            <% } %>
+        </nav>
+        <main class="page-content">

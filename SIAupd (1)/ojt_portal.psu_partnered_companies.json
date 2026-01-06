@@ -1,0 +1,154 @@
+[{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25e7"
+  },
+  "name": "B&M Fiber-Tech Fiber Optics Installation Services",
+  "type": "Private Fiber Optic Installation Service Provider",
+  "description": "Offers fiber internet installation and local connectivity services in Pangasinan.",
+  "location": "Pangasinan, Philippines",
+  "website": "https://www.facebook.com/bmfbt/",
+  "notes": "Local business; official website unavailable, Facebook page used."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25e8"
+  },
+  "name": "Bureau of Internal Revenue - CAR",
+  "type": "National Government Agency",
+  "description": "Responsible for tax collection and enforcement in the Cordillera Administrative Region.",
+  "location": "Cordillera Administrative Region, Philippines",
+  "website": "https://www.bir.gov.ph",
+  "notes": "Regional BIR office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25e9"
+  },
+  "name": "DepEd Schools Division Office - Urdaneta City",
+  "type": "Government Education Office",
+  "description": "Oversees public schools in Urdaneta City.",
+  "location": "Urdaneta City, Pangasinan, Philippines",
+  "website": "https://www.deped.gov.ph",
+  "notes": "Local DepEd division office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25ea"
+  },
+  "name": "Department of Agrarian Reform",
+  "type": "National Government Agency",
+  "description": "Responsible for agrarian reform implementation and land distribution.",
+  "location": "Philippines",
+  "website": "https://www.dar.gov.ph",
+  "notes": "National agency."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25eb"
+  },
+  "name": "DENR - CENRO Baguio City",
+  "type": "Government Agency",
+  "description": "Local office for environmental and natural resource management in Baguio City.",
+  "location": "Baguio City, Philippines",
+  "website": "https://www.denr.gov.ph",
+  "notes": "Community Environment and Natural Resources Office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25ec"
+  },
+  "name": "DICT - Pangasinan",
+  "type": "Government ICT Agency",
+  "description": "Promotes digital connectivity initiatives and ICT development in Pangasinan.",
+  "location": "Pangasinan, Philippines",
+  "website": "https://dict.gov.ph",
+  "notes": "Regional office of the Department of Information and Communications Technology."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25ed"
+  },
+  "name": "Local Government Unit of Manaoag",
+  "type": "Local Government Unit",
+  "description": "Manages local governance, community programs, and services in Manaoag.",
+  "location": "Manaoag, Pangasinan, Philippines",
+  "website": null,
+  "notes": "Municipal government office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25ee"
+  },
+  "name": "Local Government Unit of Sual",
+  "type": "Local Government Unit",
+  "description": "Manages local governance, community programs, and services in Sual.",
+  "location": "Sual, Pangasinan, Philippines",
+  "website": null,
+  "notes": "Municipal government office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25ef"
+  },
+  "name": "Makerspace Innovhub",
+  "type": "Innovation Hub / Maker Space",
+  "description": "Provides community technology workshops and collaborative projects.",
+  "location": "Pangasinan, Philippines",
+  "website": null,
+  "notes": "Local tech hub; website not available."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25f0"
+  },
+  "name": "National Irrigation Administration - PIMO",
+  "type": "Government Agency",
+  "description": "Develops and manages irrigation infrastructure in the region.",
+  "location": "Philippines",
+  "website": "https://www.nia.gov.ph",
+  "notes": "Philippine national irrigation agency regional office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25f1"
+  },
+  "name": "Offshore Concept BPO Services, Inc. (FullSuite)",
+  "type": "Private BPO Company",
+  "description": "Provides outsourced business support services including customer service and back-office operations.",
+  "location": "Philippines",
+  "website": null,
+  "notes": "Limited online info; BPO service provider."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25f2"
+  },
+  "name": "PruLife UK - Urdaneta Branch",
+  "type": "Private Insurance Company",
+  "description": "Provides life insurance and financial services.",
+  "location": "Urdaneta City, Pangasinan, Philippines",
+  "website": "https://www.prulifeuk.com.ph",
+  "notes": "Licensed life insurer branch."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25f3"
+  },
+  "name": "PSU - Information and Communication Technology Management Office",
+  "type": "University Department",
+  "description": "Provides IT support and digital services for PSU.",
+  "location": "Pangasinan State University, Philippines",
+  "website": "https://www.psu.edu.ph",
+  "notes": "University ICT management office."
+},
+{
+  "_id": {
+    "$oid": "693c69d1a8aefee98f6a25f4"
+  },
+  "name": "Villasis Water District",
+  "type": "Public Utility",
+  "description": "Provides water services for Villasis municipality.",
+  "location": "Villasis, Pangasinan, Philippines",
+  "website": null,
+  "notes": "Local water district."
+}]

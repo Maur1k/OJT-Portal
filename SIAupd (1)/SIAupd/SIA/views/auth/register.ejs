@@ -1,0 +1,127 @@
+<%- include('../partials/header') %>
+
+<section class="psu-section">
+    <div class="glass-panel">
+        <div class="page-headline">
+            <div>
+                <p class="text-uppercase text-muted mb-1">Urdaneta City Campus</p>
+                <h2>Student Registration</h2>
+            </div>
+        </div>
+        <div class="mt-3">
+                    <% if (typeof error !== 'undefined' && error) { %>
+                    <div class="alert alert-danger"><%= error %></div>
+                    <% } %>
+                    <form method="POST" action="/auth/register" id="registerForm" enctype="multipart/form-data">
+                        <h5 class="mb-3">Account Information</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <h5 class="mb-3">Student Information</h5>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="studentNumber" class="form-label">Student Number <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="studentNumber" name="studentNumber" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="firstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="lastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="profilePhoto" class="form-label">Profile Photo</label>
+                                <input type="file" class="form-control" id="profilePhoto" name="profilePhoto" accept=".jpg,.jpeg,.png">
+                                <small class="text-muted">Upload a recent 2x2 style photo (JPG/PNG, max 5MB).</small>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="middleName" class="form-label">Middle Name</label>
+                                <input type="text" class="form-control" id="middleName" name="middleName">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="course" class="form-label">Course <span class="text-danger">*</span></label>
+                                <select class="form-control" id="course" name="course" required>
+                                    <option value="">Select Course</option>
+                                    <option value="BSIT">Bachelor of Science in Information Technology (BSIT)</option>
+                                    <option value="BSCS">Bachelor of Science in Computer Science (BSCS)</option>
+                                    <option value="BSIS">Bachelor of Science in Information Systems (BSIS)</option>
+                                    <option value="BSCE">Bachelor of Science in Computer Engineering (BSCE)</option>
+                                    <option value="BSEMC">Bachelor of Science in Electronics and Communications Engineering (BSEMC)</option>
+                                    <option value="BSECE">Bachelor of Science in Electronics Engineering (BSECE)</option>
+                                    <option value="BSME">Bachelor of Science in Mechanical Engineering (BSME)</option>
+                                    <option value="BSEE">Bachelor of Science in Electrical Engineering (BSEE)</option>
+                                    <option value="BSCpE">Bachelor of Science in Computer Engineering (BSCpE)</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="yearLevel" class="form-label">Year Level <span class="text-danger">*</span></label>
+                                <select class="form-control" id="yearLevel" name="yearLevel" required>
+                                    <option value="">Select Year Level</option>
+                                    <option value="1st Year">1st Year</option>
+                                    <option value="2nd Year">2nd Year</option>
+                                    <option value="3rd Year">3rd Year</option>
+                                    <option value="4th Year">4th Year</option>
+                                    <option value="5th Year">5th Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="section" class="form-label">Section</label>
+                                <input type="text" class="form-control" id="section" name="section">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="contactNumber" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="contactNumber" name="contactNumber" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="address" name="address" required>
+                            </div>
+                        </div>
+
+                        <h6 class="mt-4 mb-3">Emergency Contact</h6>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label for="emergencyContactName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="emergencyContactName" name="emergencyContactName">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="emergencyContactRelationship" class="form-label">Relationship</label>
+                                <input type="text" class="form-control" id="emergencyContactRelationship" name="emergencyContactRelationship">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="emergencyContactNumber" class="form-label">Contact Number</label>
+                                <input type="text" class="form-control" id="emergencyContactNumber" name="emergencyContactNumber">
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg px-5">Register</button>
+                        </div>
+                    </form>
+                    <p class="text-center mt-3">
+                        Already have an account? <a href="/auth/login">Login here</a>
+                    </p>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>
+

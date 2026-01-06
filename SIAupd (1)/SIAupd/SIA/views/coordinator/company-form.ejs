@@ -1,0 +1,118 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Add Company</h2>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="/coordinator/companies">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="name" class="form-label">Company/Agency Name <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="name" name="name" value="<%= typeof company !== 'undefined' && company ? company.name : '' %>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
+                        <select class="form-select" id="type" name="type" required>
+                            <option value="">Select Type</option>
+                            <option value="company" <%= typeof company !== 'undefined' && company && company.type === 'company' ? 'selected' : '' %>>Company</option>
+                            <option value="agency" <%= typeof company !== 'undefined' && company && company.type === 'agency' ? 'selected' : '' %>>Agency</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="address" name="address" value="<%= typeof company !== 'undefined' && company ? company.address : '' %>" required>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="contact" class="form-label">Contact Number <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="contact" name="contact" value="<%= typeof company !== 'undefined' && company ? company.contact : '' %>" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= typeof company !== 'undefined' && company ? company.email : '' %>">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="website" class="form-label">Website</label>
+                    <input type="url" class="form-control" id="website" name="website" placeholder="https://example.com" value="<%= typeof company !== 'undefined' && company ? company.website : '' %>">
+                </div>
+                <div class="mb-3">
+                    <label for="availableForCourses" class="form-label">Available For Courses</label>
+                    <small class="form-text text-muted d-block mb-2">Select which courses can apply to this company. Leave empty to allow all courses.</small>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSIT" id="course_BSIT" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSIT') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSIT">BSIT</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSCS" id="course_BSCS" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSCS') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSCS">BSCS</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSIS" id="course_BSIS" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSIS') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSIS">BSIS</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSCE" id="course_BSCE" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSCE') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSCE">BSCE</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSEMC" id="course_BSEMC" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSEMC') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSEMC">BSEMC</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSECE" id="course_BSECE" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSECE') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSECE">BSECE</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSME" id="course_BSME" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSME') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSME">BSME</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSEE" id="course_BSEE" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSEE') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSEE">BSEE</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="availableForCourses" value="BSCpE" id="course_BSCpE" <%= typeof company !== 'undefined' && company && company.availableForCourses && company.availableForCourses.includes('BSCpE') ? 'checked' : '' %>>
+                                <label class="form-check-label" for="course_BSCpE">BSCpE</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="/coordinator/companies" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Add Company</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

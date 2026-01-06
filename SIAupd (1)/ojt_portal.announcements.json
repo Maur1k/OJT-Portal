@@ -1,0 +1,39 @@
+[{
+  "_id": {
+    "$oid": "69291ec1da6c8118b8aafbb3"
+  },
+  "title": "Deadline of passing of MOA",
+  "content": "December 2, 2025",
+  "type": "update",
+  "postedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "isActive": false,
+  "createdAt": {
+    "$date": "2025-11-28T04:02:09.156Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-12T18:14:52.024Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bd90e4fc4df1756a75d52"
+  },
+  "title": "sample",
+  "content": "shout out sayo",
+  "type": "memo",
+  "postedBy": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "isActive": true,
+  "imagePath": "uploads\\announcements\\announcement-6927d701dcaee985799b9911-1767627022041-336698636.jpg",
+  "createdAt": {
+    "$date": "2026-01-05T15:30:22.049Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-05T15:30:22.050Z"
+  },
+  "__v": 0
+}]

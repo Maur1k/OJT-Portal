@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+
+<section class="psu-section">
+    <div class="form-shell">
+        <div class="form-card">
+            <h2 class="text-center">Welcome back!</h2>
+            <p class="text-center form-subtext">Sign in with your PSU credentials to access the OJT Management Portal.</p>
+            <% if (typeof error !== 'undefined' && error) { %>
+            <div class="alert alert-danger"><%= error %></div>
+            <% } %>
+            <form method="POST" action="/auth/login">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mb-3">Sign in</button>
+            </form>
+            <p class="text-center mb-0">
+                Need an account? <a href="/auth/register">Register as a student</a>
+            </p>
+        </div>
+    </div>
+</section>
+
+<%- include('../partials/footer') %>
+

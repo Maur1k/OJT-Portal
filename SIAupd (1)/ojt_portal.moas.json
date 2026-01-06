@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "693c627b981f8f38ba83eb0a"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "filePath": "uploads\\moa-requests\\moa-request-693bd3cf3c63c81c5dc1b310-1765563166041-859214792.pdf",
+  "fileName": "moa-request-693bd3cf3c63c81c5dc1b310-1765563166041-859214792.pdf",
+  "fileSize": 335952,
+  "mimeType": "application/pdf",
+  "status": "processing",
+  "coordinatorComment": "",
+  "coordinatorId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "directorId": null,
+  "signedAt": null,
+  "uploadedAt": {
+    "$date": "2025-12-12T18:44:11.581Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-12T18:44:11.583Z"
+  },
+  "__v": 0
+}]

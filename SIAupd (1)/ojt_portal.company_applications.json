@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "693cfc9f5e085bf3f2a23299"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "companyId": {
+    "$oid": "693c69d1a8aefee98f6a25e7"
+  },
+  "companyName": "B&M Fiber-Tech Fiber Optics Installation Services",
+  "companyType": "Private Fiber Optic Installation Service Provider",
+  "source": "partner",
+  "status": "accepted",
+  "notes": "",
+  "reviewedAt": {
+    "$date": "2025-12-13T05:45:27.131Z"
+  },
+  "reviewerId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "appliedAt": {
+    "$date": "2025-12-13T05:41:51.426Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:41:51.426Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-13T05:45:27.134Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfca85e085bf3f2a232ad"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "companyId": {
+    "$oid": "693c69d1a8aefee98f6a25e8"
+  },
+  "companyName": "Bureau of Internal Revenue - CAR",
+  "companyType": "National Government Agency",
+  "source": "partner",
+  "status": "cancelled",
+  "notes": "Auto-cancelled due to another accepted application",
+  "reviewedAt": {
+    "$date": "2025-12-13T05:45:27.138Z"
+  },
+  "reviewerId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "appliedAt": {
+    "$date": "2025-12-13T05:42:00.135Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:42:00.136Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-13T05:45:27.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfcac5e085bf3f2a232c1"
+  },
+  "studentId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "companyId": {
+    "$oid": "693c69d1a8aefee98f6a25eb"
+  },
+  "companyName": "DENR - CENRO Baguio City",
+  "companyType": "Government Agency",
+  "source": "partner",
+  "status": "cancelled",
+  "notes": "Auto-cancelled due to another accepted application",
+  "reviewedAt": {
+    "$date": "2025-12-13T05:45:27.138Z"
+  },
+  "reviewerId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "appliedAt": {
+    "$date": "2025-12-13T05:42:04.735Z"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:42:04.735Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-13T05:45:27.139Z"
+  },
+  "__v": 0
+}]

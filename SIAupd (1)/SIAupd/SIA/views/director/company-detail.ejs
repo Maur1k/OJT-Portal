@@ -1,0 +1,109 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-0"><%= company.name %></h2>
+            <div class="text-muted"><%= company.type === 'agency' ? 'Agency' : 'Company' %></div>
+        </div>
+        <a href="/director/companies" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Back to Companies
+        </a>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-muted">Address</div>
+                    <div><%= company.address || '—' %></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-muted">Contact</div>
+                    <div><%= company.contact || '—' %></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="text-muted">Email</div>
+                    <div><%= company.email || '—' %></div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <div class="text-muted">Website</div>
+                    <div>
+                        <% if (company.website) { %>
+                            <a href="<%= company.website %>" target="_blank" rel="noopener"><%= company.website %></a>
+                        <% } else { %>
+                            —
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title mb-3">Applicants</h5>
+            <% if (applications && applications.length > 0) { %>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Student Number</th>
+                            <th>Course/Section</th>
+                            <th>Status</th>
+                            <th>Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% applications.forEach(app => { %>
+                        <tr>
+                            <td>
+                                <strong>
+                                    <%= app.profile ? app.profile.firstName + ' ' + (app.profile.middleName || '') + ' ' + app.profile.lastName : (app.studentId ? app.studentId.email : 'N/A') %>
+                                </strong>
+                                <div class="text-muted small"><%= app.studentId ? app.studentId.email : '—' %></div>
+                            </td>
+                            <td><%= app.profile ? app.profile.studentNumber : '—' %></td>
+                            <td>
+                                <% if (app.profile) { %>
+                                    <%= app.profile.course || '—' %>
+                                    <% if (app.profile.section) { %>
+                                        • <%= app.profile.section %>
+                                    <% } %>
+                                <% } else { %>
+                                    —
+                                <% } %>
+                            </td>
+                            <td>
+                                <span class="badge 
+                                    <% if (app.status === 'accepted') { %>bg-success
+                                    <% } else if (app.status === 'cancelled') { %>bg-secondary
+                                    <% } else if (app.status === 'rejected') { %>bg-danger
+                                    <% } else { %>bg-warning text-dark<% } %>">
+                                    <%= app.status.charAt(0).toUpperCase() + app.status.slice(1) %>
+                                </span>
+                            </td>
+                            <td><%= new Date(app.submittedAt).toLocaleDateString() %></td>
+                            <td>
+                                <a href="/director/companies/<%= app.companyId || company._id || '' %>/applications/<%= app._id %>/edit" class="btn btn-sm btn-outline-primary">
+                                    Update
+                                </a>
+                            </td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+            <% } else { %>
+            <p class="text-muted mb-0">No applicants yet.</p>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

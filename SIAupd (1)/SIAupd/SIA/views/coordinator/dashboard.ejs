@@ -1,0 +1,139 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <div class="dashboard-header">
+        <h2>Coordinator Dashboard</h2>
+        <p>Overview of students, MOA requests, and system statistics</p>
+    </div>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <div class="stat-cards-grid">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h5 class="card-title">Total Students</h5>
+                <h3 class="mb-0"><%= totalStudents %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Verified</h5>
+                <h3 class="mb-0"><%= verifiedStudents %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h5 class="card-title">Pending Verification</h5>
+                <h3 class="mb-0"><%= pendingVerification %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h5 class="card-title">For Signature</h5>
+                <h3 class="mb-0"><%= moaStats.forSignature %></h3>
+            </div>
+        </div>
+    </div>
+
+    <% if (typeof moaRequestStats !== 'undefined') { %>
+    <div class="stat-cards-grid mb-4">
+        <div class="card text-white bg-secondary">
+            <div class="card-body">
+                <h5 class="card-title">MOA Requests - Processing</h5>
+                <h3 class="mb-0"><%= moaRequestStats.processing %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">MOA Requests - Accepted</h5>
+                <h3 class="mb-0"><%= moaRequestStats.accepted %></h3>
+            </div>
+        </div>
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">MOA Requests - Denied</h5>
+                <h3 class="mb-0"><%= moaRequestStats.denied %></h3>
+            </div>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">MOA Status Summary</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Processing:</strong> <span class="badge bg-secondary"><%= moaStats.processing %></span></p>
+                    <p><strong>Revise:</strong> <span class="badge bg-warning"><%= moaStats.revise %></span></p>
+                    <p><strong>For Signature:</strong> <span class="badge bg-info"><%= moaStats.forSignature %></span></p>
+                    <p><strong>Completed:</strong> <span class="badge bg-success"><%= moaStats.completed %></span></p>
+                    <a href="/coordinator/moa" class="btn btn-primary mt-2">Manage MOA</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Recent Students</h5>
+                    <a href="/coordinator/students" class="btn btn-sm btn-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    <% if (recentStudents.length > 0) { %>
+                    <ul class="list-group list-group-flush">
+                        <% recentStudents.forEach(student => { %>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <%= student.email %>
+                            <% if (student.isVerified) { %>
+                            <span class="badge bg-success">Verified</span>
+                            <% } else { %>
+                            <span class="badge bg-warning">Pending</span>
+                            <% } %>
+                        </li>
+                        <% }); %>
+                    </ul>
+                    <% } else { %>
+                    <p class="text-muted">No students yet.</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5 class="mb-0">Quick Actions</h5>
+        </div>
+        <div class="card-body">
+            <div class="quick-actions">
+                <a href="/coordinator/students" class="btn btn-outline-primary">
+                    <i class="bi bi-people"></i> View Students
+                </a>
+                <a href="/coordinator/moa" class="btn btn-outline-primary">
+                    <i class="bi bi-file-earmark-text"></i> MOA Management
+                </a>
+                <a href="/coordinator/companies" class="btn btn-outline-primary">
+                    <i class="bi bi-building"></i> Companies
+                </a>
+                <a href="/coordinator/moa-requests" class="btn btn-outline-primary">
+                    <i class="bi bi-inbox"></i> MOA Requests
+                </a>
+                <a href="/coordinator/announcements/create" class="btn btn-outline-primary">
+                    <i class="bi bi-megaphone"></i> Post Announcement
+                </a>
+                <a href="/coordinator/coordinators/create" class="btn btn-outline-primary">
+                    <i class="bi bi-person-plus"></i> Add Coordinator
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
+

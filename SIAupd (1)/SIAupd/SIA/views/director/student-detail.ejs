@@ -1,0 +1,137 @@
+<%- include('../partials/header') %>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Student Details</h2>
+
+    <% if (typeof query !== 'undefined' && query.success) { %>
+    <div class="alert alert-success alert-dismissible fade show">
+        <%= query.success %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+    <% if (typeof query !== 'undefined' && query.error) { %>
+    <div class="alert alert-danger alert-dismissible fade show">
+        <%= query.error %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <% } %>
+
+    <% if (typeof student !== 'undefined' && student) { %>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Account Information</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Email:</strong> <%= student.email %></p>
+            <p><strong>Status:</strong> <span class="badge bg-success">Verified</span></p>
+        </div>
+    </div>
+
+    <% if (typeof profile !== 'undefined' && profile) { %>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Student Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="row align-items-start">
+                <div class="col-md-4 col-lg-3 text-center mb-4 mb-md-0">
+                    <% if (profile.profilePhoto) { %>
+                        <img src="<%= profile.profilePhoto %>" alt="Profile photo of <%= profile.firstName %> <%= profile.lastName %>" class="student-photo img-fluid shadow-sm">
+                    <% } else { %>
+                        <div class="student-photo-placeholder d-flex flex-column justify-content-center align-items-center shadow-sm">
+                            <span class="fw-bold text-muted">No Photo</span>
+                            <small class="text-muted">Not provided</small>
+                        </div>
+                    <% } %>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Student Number:</strong> <%= profile.studentNumber %></p>
+                            <p><strong>Name:</strong> <%= profile.firstName %> <%= profile.middleName || '' %> <%= profile.lastName %></p>
+                            <p><strong>Course:</strong> <%= profile.course %></p>
+                            <p><strong>Year Level:</strong> <%= profile.yearLevel %></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Contact Number:</strong> <%= profile.contactNumber %></p>
+                            <p><strong>Address:</strong> <%= profile.address %></p>
+                            <p><strong>Current Status:</strong>
+                                <span class="badge bg-info"><%= profile.status || 'Processing (Director side)' %></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <form method="POST" action="/director/students/<%= student._id %>/status" class="row g-2 align-items-end">
+                                <div class="col-md-6">
+                                    <label for="status" class="form-label">Update Status</label>
+                                    <select class="form-control" id="status" name="status" required>
+                                        <% (statusOptions || []).forEach(function(option) { %>
+                                            <option value="<%= option %>" <%= profile.status === option ? 'selected' : '' %>><%= option %></option>
+                                        <% }); %>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="submit" class="btn btn-primary w-100">Save</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Company Information</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Company Name:</strong> <%= profile.companyName %></p>
+            <p><strong>Company Address:</strong> <%= profile.companyAddress %></p>
+            <p><strong>OJT Period:</strong> <%= new Date(profile.ojtStartDate).toLocaleDateString() %> to <%= new Date(profile.ojtEndDate).toLocaleDateString() %></p>
+        </div>
+    </div>
+    <% } %>
+
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">MOA Status</h5>
+        </div>
+        <div class="card-body">
+            <% if (typeof moa !== 'undefined' && moa) { %>
+            <p><strong>Status:</strong> 
+                <span class="badge 
+                    <% if (moa.status === 'completed') { %>bg-success
+                    <% } else if (moa.status === 'for signature') { %>bg-info
+                    <% } else { %>bg-secondary<% } %>">
+                    <%= moa.status %>
+                </span>
+            </p>
+            <% if (moa.status === 'for signature') { %>
+            <form method="POST" action="/director/moa/<%= moa._id %>/sign" onsubmit="return confirm('Are you sure you want to sign this MOA?');">
+                <button type="submit" class="btn btn-success">Sign MOA (Final Approval)</button>
+            </form>
+            <% } %>
+            <% } else { %>
+            <p class="text-muted">MOA not uploaded yet.</p>
+            <% } %>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">Repository</h5>
+            <a href="/director/students/<%= student._id %>/repository" class="btn btn-sm btn-primary">View Repository</a>
+        </div>
+        <div class="card-body">
+            <p><strong>Total Files:</strong> <%= typeof fileCount !== 'undefined' ? fileCount : 0 %></p>
+        </div>
+    </div>
+    <% } else { %>
+    <div class="alert alert-danger">Student not found.</div>
+    <% } %>
+</div>
+
+<%- include('../partials/footer') %>
+

@@ -1,0 +1,3615 @@
+[{
+  "_id": {
+    "$oid": "693bd3cf3c63c81c5dc1b314"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "REGISTER",
+  "description": "New student account created",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:35:27.620Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd3da3c63c81c5dc1b318"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:35:38.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d8f3632149636fce491e"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "REGISTER",
+  "description": "New student account created",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T04:52:03.091Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d8fd632149636fce4922"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T04:52:13.325Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927d914632149636fce4927"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T04:52:36.709Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927dc04fab7e43bd8e49838"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T05:05:08.505Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6927dc06fab7e43bd8e4983c"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T05:05:10.043Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928383b26bc0c9675c1930e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:38:35.802Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928388826bc0c9675c19343"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:39:52.965Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928389b26bc0c9675c19347"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:40:11.623Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838a026bc0c9675c1934f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:40:16.778Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838ac26bc0c9675c19353"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:40:28.131Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838bd26bc0c9675c19357"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:40:45.898Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838c826bc0c9675c1935b"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:40:56.670Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838d626bc0c9675c19376"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "VERIFY_STUDENT",
+  "description": "Verified student account: a@gmail.com",
+  "targetUserId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "createdAt": {
+    "$date": "2025-11-27T11:41:10.498Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838d926bc0c9675c1937e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:41:13.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692838e526bc0c9675c19382"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T11:41:25.339Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692864d9fe4d309c77a351d9"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T14:48:57.438Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928658f9955e40a5e54f359"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T14:51:59.522Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928659a9955e40a5e54f36e"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T14:52:10.463Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928679e9955e40a5e54f373"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T15:00:46.705Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692867b09955e40a5e54f38c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-27T15:01:04.118Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e911bf6bec55f5f8a66c"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:13:05.503Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e927bf6bec55f5f8a680"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "UPLOAD_MOA",
+  "description": "Student uploaded MOA file",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:13:27.715Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e930bf6bec55f5f8a685"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:13:36.151Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e943bf6bec55f5f8a689"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:13:55.408Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e953bf6bec55f5f8a69c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_STATUS",
+  "description": "Updated MOA status to: processing",
+  "targetUserId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "createdAt": {
+    "$date": "2025-11-28T00:14:11.785Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e9b0bf6bec55f5f8a6b2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:15:44.501Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6928e9c0bf6bec55f5f8a6b6"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T00:16:00.113Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291e5eda6c8118b8aafba2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:00:30.797Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291e7dda6c8118b8aafba6"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:01:01.823Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291ec1da6c8118b8aafbb5"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "CREATE_ANNOUNCEMENT",
+  "description": "Created announcement: Deadline of passing of MOA",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:02:09.160Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291edada6c8118b8aafbbc"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:02:34.957Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291ee7da6c8118b8aafbc0"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:02:47.032Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291f3cda6c8118b8aafbed"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:04:12.284Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291f4bda6c8118b8aafbf1"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:04:27.362Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69291f81da6c8118b8aafc14"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T04:05:21.146Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69297609cff9f802393f9b8a"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:14:33.719Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69297622cff9f802393f9ba1"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:14:58.286Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692977e65840b1ab147ddf90"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:22:30.314Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692978145840b1ab147ddf9b"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:23:16.229Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6929782c5840b1ab147ddf9f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:23:40.562Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6929784e5840b1ab147ddfb4"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:24:14.886Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6929785b5840b1ab147ddfb8"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:24:27.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692979771de5dda1d92f9d5e"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:29:11.970Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6929798d1de5dda1d92f9d62"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-11-28T10:29:33.481Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c620fb689b5180a25124"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:34:24.327Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c62bfb689b5180a25128"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:34:35.442Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c709fb689b5180a25169"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:38:17.130Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c71afb689b5180a2516d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:38:34.186Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c744fb689b5180a251af"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:39:16.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c782fb689b5180a251b3"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:40:18.668Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7b0fb689b5180a2520c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:41:04.266Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7bbfb689b5180a25210"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:41:15.679Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7cafb689b5180a2521e"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "UPLOAD_FILE",
+  "description": "Student uploaded evaluation file: ito na nga niii.pdf",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:41:30.531Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7dffb689b5180a2522a"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "UPLOAD_MOA",
+  "description": "Student uploaded MOA file",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:41:51.804Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7ecfb689b5180a25240"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:42:04.496Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c7f5fb689b5180a25244"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:42:13.640Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c846fb689b5180a2525d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "UPDATE_STUDENT_STATUS",
+  "description": "Updated student status to: Approve",
+  "targetUserId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:43:34.090Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c84bfb689b5180a25265"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:43:39.280Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c85dfb689b5180a2526a"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:43:57.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c870fb689b5180a2528c"
+  },
+  "userId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:44:16.752Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c883fb689b5180a25290"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:44:35.931Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c897fb689b5180a252ac"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_STATUS",
+  "description": "Updated MOA status to: for signature",
+  "targetUserId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:44:55.250Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c8c1fb689b5180a252e7"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:45:37.162Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c8cefb689b5180a252eb"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:45:50.600Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c8dcfb689b5180a252fe"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "SIGN_MOA",
+  "description": "Signed MOA (final approval)",
+  "targetUserId": {
+    "$oid": "6927d8f2632149636fce491a"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:46:04.165Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c95150d1cba6b2d0789b"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:48:01.900Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931c9f450d1cba6b2d078a3"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "REGISTER",
+  "description": "New student account created",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:50:44.635Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca0150d1cba6b2d078a7"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:50:57.202Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca0550d1cba6b2d078ab"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:51:01.539Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca1550d1cba6b2d078af"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:51:17.031Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca3d50d1cba6b2d078ef"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "VERIFY_STUDENT",
+  "description": "Verified student account: pat@gmail.com",
+  "targetUserId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "createdAt": {
+    "$date": "2025-12-04T17:51:57.786Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca4250d1cba6b2d078f7"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:52:02.576Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca4a50d1cba6b2d078fb"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:52:10.929Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931ca5350d1cba6b2d07909"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "UPLOAD_MOA",
+  "description": "Student uploaded MOA file",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:52:19.921Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cab050d1cba6b2d0791d"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:53:52.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cac850d1cba6b2d07922"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:54:16.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cada50d1cba6b2d07949"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:54:34.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cae450d1cba6b2d0794d"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:54:44.495Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931caf350d1cba6b2d0795b"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "UPLOAD_FILE",
+  "description": "Student uploaded evaluation file: LegallyAI_Present.pdf",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:54:59.075Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931caff50d1cba6b2d07969"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:55:11.172Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cb0b50d1cba6b2d0796d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:55:23.427Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cb1850d1cba6b2d0798c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:55:36.065Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cb2250d1cba6b2d07990"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:55:46.643Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6931cb4d50d1cba6b2d079ac"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-04T17:56:29.723Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6932d550aba2b6fdf4e75c7d"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-05T12:51:28.600Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6932d570aba2b6fdf4e75c8b"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-05T12:52:00.450Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6932d5a6aba2b6fdf4e75c8f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-05T12:52:54.780Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6932d605aba2b6fdf4e75cae"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-05T12:54:29.724Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6932d60eaba2b6fdf4e75cb2"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-05T12:54:38.686Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69377f9854b23c0c8d9b0a04"
+  },
+  "userId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-09T01:47:04.319Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d3455066dc4ffe370d1"
+  },
+  "userId": {
+    "$oid": "693a1d3455066dc4ffe370cd"
+  },
+  "action": "REGISTER",
+  "description": "New student account created",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:24:04.386Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d4e55066dc4ffe370d5"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:24:30.301Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d6655066dc4ffe370ef"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "VERIFY_STUDENT",
+  "description": "Verified student account: kath@gmail.com",
+  "targetUserId": {
+    "$oid": "693a1d3455066dc4ffe370cd"
+  },
+  "createdAt": {
+    "$date": "2025-12-11T01:24:54.991Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d6a55066dc4ffe370f7"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:24:58.448Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1d9755066dc4ffe370fd"
+  },
+  "userId": {
+    "$oid": "693a1d3455066dc4ffe370cd"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:25:43.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1f2555066dc4ffe37138"
+  },
+  "userId": {
+    "$oid": "693a1d3455066dc4ffe370cd"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:32:21.430Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1f3455066dc4ffe3713c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:32:36.578Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1f7055066dc4ffe37173"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "UPDATE_STUDENT_STATUS",
+  "description": "Updated student status to: Approve",
+  "targetUserId": {
+    "$oid": "6931c9f450d1cba6b2d0789f"
+  },
+  "createdAt": {
+    "$date": "2025-12-11T01:33:36.680Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a1ff655066dc4ffe3719f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:35:50.401Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693a201155066dc4ffe371a4"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-11T01:36:17.282Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd74dd6d34055f9fae02a"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:50:21.632Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd75ad6d34055f9fae02e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:50:34.508Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd765d6d34055f9fae048"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "VERIFY_STUDENT",
+  "description": "Verified student account: juandc@gmail.com",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T08:50:45.901Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd76fd6d34055f9fae05c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:50:55.932Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd777d6d34055f9fae060"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:51:03.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bc7f720b2de30eba92918"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "UPLOAD_REQUIREMENT",
+  "description": "Uploaded requirement: Application for Internship",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T07:44:55.834Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bc9ea1e9ad3713d33c927"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "DELETE_REQUIREMENT",
+  "description": "Deleted requirement: Application for Internship",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T07:53:14.257Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bc9fe1e9ad3713d33c92e"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "UPLOAD_REQUIREMENT",
+  "description": "Uploaded requirement: Application for Internship",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T07:53:34.186Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd4ae5f9b2df62c1eef09"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "DELETE_REQUIREMENT",
+  "description": "Deleted requirement: Application for Internship",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:39:10.010Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd58a5996eadbd33695e2"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:42:50.728Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd592821ff36518f95a18"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:42:58.566Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693bd592821ff36518f95a1a"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T08:42:58.574Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5abcb6e6d7b5fb2a7966"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:11:08.932Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5ac9b6e6d7b5fb2a796a"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:11:21.497Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5b1eb6e6d7b5fb2a797d"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "SUBMIT_MOA_REQUEST",
+  "description": "Submitted MOA request for VZION",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:12:46.053Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5b22b6e6d7b5fb2a7982"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:12:50.224Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5b29b6e6d7b5fb2a7986"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:12:57.200Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5b9cb6e6d7b5fb2a79c2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "DEACTIVATE_ANNOUNCEMENT",
+  "description": "Deactivated announcement: Deadline of passing of MOA",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:14:52.026Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5d1767b4fa3b4a9a445b"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:21:11.894Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5d2167b4fa3b4a9a445f"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:21:21.485Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5da667b4fa3b4a9a4484"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:23:34.524Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5dab67b4fa3b4a9a4488"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:23:39.805Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5e7d67b4fa3b4a9a44e0"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:27:09.874Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5e8567b4fa3b4a9a44e4"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:27:17.635Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5f4a67b4fa3b4a9a44f3"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:30:34.026Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5f5a67b4fa3b4a9a44f8"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:30:50.452Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c5f9667b4fa3b4a9a452d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_REQUEST_STATUS",
+  "description": "Updated MOA request status from processing to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:31:50.142Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c610167b4fa3b4a9a4556"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:37:53.348Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c610867b4fa3b4a9a455a"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:38:00.944Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6193d1e9a5eee35382ce"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:40:19.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c619ed1e9a5eee35382d2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:40:30.914Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c61a9d1e9a5eee35382f4"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_REQUEST_STATUS",
+  "description": "Updated MOA request status from accepted to processing",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:40:41.945Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c61b0d1e9a5eee3538304"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_REQUEST_STATUS",
+  "description": "Updated MOA request status from processing to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:40:48.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6230309a94261a98d755"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_REQUEST_STATUS",
+  "description": "Updated MOA request status from accepted to processing",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:42:56.885Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6273981f8f38ba83eaf2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "DELETE_MOA",
+  "description": "Deleted MOA record",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:44:03.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c627b981f8f38ba83eb0d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_MOA_REQUEST_STATUS",
+  "description": "Updated MOA request status from processing to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T18:44:11.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6328981f8f38ba83eb74"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T18:47:04.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c682626076ef4be99b69a"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:08:22.417Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6b2622b4e313410dfd40"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:21:10.888Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6b3322b4e313410dfd44"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:21:23.448Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6bab0e05a4f72c879010"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:23:23.443Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6bb60e05a4f72c879014"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:23:34.681Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6bbc0e05a4f72c879023"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Example Tech Corp (example notifier)",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": null,
+    "companyName": "Example Tech Corp",
+    "isExample": true
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:23:40.235Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6bc30e05a4f72c879030"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:23:47.105Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6bca0e05a4f72c879034"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:23:54.760Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6c868350499c98f9c87d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:27:02.493Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6c8c8350499c98f9c881"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:27:08.096Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6c908350499c98f9c894"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to B&M Fiber-Tech Fiber Optics Installation Services",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "companyName": "B&M Fiber-Tech Fiber Optics Installation Services",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:27:12.942Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6c948350499c98f9c89a"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:27:16.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6c9e8350499c98f9c89e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:27:26.715Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6cc58350499c98f9c8bd"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:28:05.944Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6cd08350499c98f9c8c1"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:28:16.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d0dd2c52f3ab04ebb5e"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Bureau of Internal Revenue - CAR",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e8"
+    },
+    "companyName": "Bureau of Internal Revenue - CAR",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:29:17.095Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d1f27c6a4ede1fe63e5"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:29:35.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d3327c6a4ede1fe63ea"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:29:55.618Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d7327c6a4ede1fe6425"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:30:59.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d7927c6a4ede1fe6429"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:31:05.316Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d8727c6a4ede1fe6446"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Department of Agrarian Reform",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25ea"
+    },
+    "companyName": "Department of Agrarian Reform",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:31:19.371Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d9027c6a4ede1fe644c"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:31:28.956Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6d9a27c6a4ede1fe6450"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:31:38.324Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e0560f8e68e18040de2"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:33:25.439Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e3060f8e68e18040e31"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:34:08.677Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e436ed7f1665ef9b413"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:34:27.896Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e486ed7f1665ef9b426"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:34:32.789Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e586ed7f1665ef9b42b"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:34:48.181Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e676ed7f1665ef9b44e"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to DICT - Pangasinan",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25ec"
+    },
+    "companyName": "DICT - Pangasinan",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:35:03.481Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e6b6ed7f1665ef9b454"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:35:07.087Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6e706ed7f1665ef9b458"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:35:12.678Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6fd1500c4933a231b22e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:41:05.256Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6fd6500c4933a231b232"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T19:41:10.627Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c6fdd500c4933a231b241"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Example Tech Corp (example notifier)",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": null,
+    "companyName": "Example Tech Corp",
+    "isExample": true
+  },
+  "createdAt": {
+    "$date": "2025-12-12T19:41:17.570Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c82c93aa311fa5a4e169b"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T21:02:01.515Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693c82d13aa311fa5a4e169f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-12T21:02:09.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf468ae8bda45ed9d88cb"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:06:48.374Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf471ae8bda45ed9d88cf"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:06:57.942Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf477ae8bda45ed9d88de"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Example Tech Corp (example notifier)",
+  "targetUserId": null,
+  "metadata": {
+    "companyId": null,
+    "companyName": "Example Tech Corp",
+    "isExample": true
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:07:03.841Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf51e7d96f63e2f98d100"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:09:50.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf5297d96f63e2f98d105"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:10:01.847Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf99f657d54a81db6ae02"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_COMPANY_APPLICATION_STATUS",
+  "description": "Set application status to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25ec"
+    },
+    "companyName": "DICT - Pangasinan"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:29:03.828Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf99f657d54a81db6ae04"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "COMPANY_APPLICATION_STATUS",
+  "description": "Your application to DICT - Pangasinan was accepted.",
+  "targetUserId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25ec"
+    },
+    "status": "accepted",
+    "comment": ""
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:29:03.830Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf9af657d54a81db6ae1c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_COMPANY_APPLICATION_STATUS",
+  "description": "Set application status to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "companyName": "B&M Fiber-Tech Fiber Optics Installation Services"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:29:19.341Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cf9af657d54a81db6ae1e"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "COMPANY_APPLICATION_STATUS",
+  "description": "Your application to B&M Fiber-Tech Fiber Optics Installation Services was accepted.",
+  "targetUserId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "status": "accepted",
+    "comment": ""
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:29:19.343Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfafdf97d48aca3dcef6d"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:34:53.944Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfb02f97d48aca3dcef71"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:34:58.748Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfbbc5e085bf3f2a23251"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "CANCEL_COMPANY_APPLICATION",
+  "description": "Student cancelled application to Bureau of Internal Revenue - CAR",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25e8"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e8"
+    },
+    "companyName": "Bureau of Internal Revenue - CAR"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:38:04.209Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfbd65e085bf3f2a23276"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to DENR - CENRO Baguio City",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25eb"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25eb"
+    },
+    "companyName": "DENR - CENRO Baguio City",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:38:30.562Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfbd95e085bf3f2a2327f"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "CANCEL_COMPANY_APPLICATION",
+  "description": "Student cancelled application to DENR - CENRO Baguio City",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25eb"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25eb"
+    },
+    "companyName": "DENR - CENRO Baguio City"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:38:33.573Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfc9f5e085bf3f2a2329b"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to B&M Fiber-Tech Fiber Optics Installation Services",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25e7"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "companyName": "B&M Fiber-Tech Fiber Optics Installation Services",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:41:51.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfca85e085bf3f2a232af"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to Bureau of Internal Revenue - CAR",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25e8"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e8"
+    },
+    "companyName": "Bureau of Internal Revenue - CAR",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:42:00.139Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfcac5e085bf3f2a232c3"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "APPLY_COMPANY",
+  "description": "Student applied to DENR - CENRO Baguio City",
+  "targetUserId": {
+    "$oid": "693c69d1a8aefee98f6a25eb"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25eb"
+    },
+    "companyName": "DENR - CENRO Baguio City",
+    "source": "partner"
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:42:04.736Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfcae5e085bf3f2a232ca"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:42:06.321Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfcbe5e085bf3f2a232cf"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:42:22.418Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfd7779846a33717601cd"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "UPDATE_COMPANY_APPLICATION_STATUS",
+  "description": "Set application status to accepted",
+  "targetUserId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "companyName": "B&M Fiber-Tech Fiber Optics Installation Services",
+    "cancelledOthers": 2
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:45:27.153Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfd7779846a33717601cf"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "COMPANY_APPLICATION_STATUS",
+  "description": "Your application to B&M Fiber-Tech Fiber Optics Installation Services was accepted. 2 other pending application(s) were cancelled.",
+  "targetUserId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "metadata": {
+    "companyId": {
+      "$oid": "693c69d1a8aefee98f6a25e7"
+    },
+    "status": "accepted",
+    "comment": "",
+    "cancelledOthers": 2
+  },
+  "createdAt": {
+    "$date": "2025-12-13T05:45:27.159Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfe8652a76bcefd8700a0"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:49:58.862Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfe9752a76bcefd8700a5"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:50:15.338Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfebe52a76bcefd8700c0"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "UPLOAD_REQUIREMENT",
+  "description": "Uploaded requirement: Application for Internship",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:50:54.234Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfec152a76bcefd8700c5"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:50:57.571Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693cfecf52a76bcefd8700ca"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:51:11.836Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d0037d323190999321425"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:57:11.019Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d003dd323190999321429"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T05:57:17.817Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d0204e42d562e8f5c75ec"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T06:04:52.371Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d020ae42d562e8f5c75f0"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T06:04:58.709Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d0604f358e2c78d7c3adb"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T06:21:56.213Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d0616f358e2c78d7c3adf"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T06:22:14.296Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693d0623f358e2c78d7c3afe"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-13T06:22:27.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eae8078c9b32259cda0ba"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:33:04.514Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eae9b78c9b32259cda0e0"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:33:31.494Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eaead78c9b32259cda0e4"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:33:49.617Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eaeb478c9b32259cda0ef"
+  },
+  "userId": {
+    "$oid": "693bd3cf3c63c81c5dc1b310"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:33:56.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eaebb78c9b32259cda0f3"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:34:03.142Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "693eaef478c9b32259cda14e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2025-12-14T12:35:00.800Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bd8eb4fc4df1756a75d3e"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:29:47.614Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bd90e4fc4df1756a75d54"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "CREATE_ANNOUNCEMENT",
+  "description": "Created announcement: sample",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:30:22.070Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bd91b4fc4df1756a75d5f"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:30:35.158Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda294fc4df1756a75d6b"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "action": "REGISTER",
+  "description": "New student account created",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:35:05.085Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda374fc4df1756a75d6f"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:35:19.318Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda3c4fc4df1756a75d73"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:35:24.386Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda674fc4df1756a75d78"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:36:07.138Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda724fc4df1756a75d92"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "VERIFY_STUDENT",
+  "description": "Verified student account: user2@gmail.com",
+  "targetUserId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "createdAt": {
+    "$date": "2026-01-05T15:36:18.127Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda744fc4df1756a75d9a"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:36:20.471Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bda7d4fc4df1756a75d9e"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:36:29.924Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bdaf19f49437d7788e4c2"
+  },
+  "userId": {
+    "$oid": "695bda284fc4df1756a75d67"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:38:25.464Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bdcfc4d627f64168cd9c4"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T15:47:08.416Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bf5fb62723a2c8781679c"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9914"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T17:33:47.180Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bf60462723a2c878167a0"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGIN",
+  "description": "User logged in",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T17:33:56.618Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695bf67862723a2c878167bb"
+  },
+  "userId": {
+    "$oid": "6927d701dcaee985799b9911"
+  },
+  "action": "LOGOUT",
+  "description": "User logged out",
+  "targetUserId": null,
+  "createdAt": {
+    "$date": "2026-01-05T17:35:52.077Z"
+  },
+  "__v": 0
+}]

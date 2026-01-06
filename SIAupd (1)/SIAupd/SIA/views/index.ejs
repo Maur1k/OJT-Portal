@@ -1,0 +1,97 @@
+<%- include('partials/header') %>
+
+<div class="psu-section">
+    <div class="hero-card">
+        <div class="hero-layout">
+            <div>
+                <p class="text-uppercase mb-2 fw-semibold">Urdaneta City Campus</p>
+                <h1>Integrated OJT Management & Monitoring Portal</h1>
+                <p class="mb-4">Coordinate practicum applications, MOA processing, document repositories, and announcements in one intuitive workspace crafted for the Pangasinan State University community.</p>
+                <div class="hero-actions">
+                    <% if (!user) { %>
+                    <a class="btn btn-primary btn-lg" href="/auth/register">Create Student Account</a>
+                    <a class="btn btn-outline-light btn-lg" href="/auth/login">Sign in</a>
+                    <% } else { %>
+                    <a class="btn btn-primary btn-lg" href="/">Go to my dashboard</a>
+                    <% } %>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>3</h3>
+                        <span>dedicated user roles</span>
+                    </div>
+                    <div class="stat">
+                        <h3>24/7</h3>
+                        <span>document access</span>
+                    </div>
+                    <div class="stat">
+                        <h3>100%</h3>
+                        <span>PSU branding compliance</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-illustration d-none d-md-block"></div>
+        </div>
+    </div>
+</div>
+
+<div class="psu-section">
+    <div class="page-headline">
+        <div>
+            <p class="text-uppercase text-muted mb-1">Portal coverage</p>
+            <h2>Guided experience for every stakeholder</h2>
+        </div>
+    </div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <i class="bi bi-mortarboard"></i>
+            <h5>Student Journey</h5>
+            <p class="mb-0">Complete profiling, upload MOA and field documents, monitor approvals, and receive campus announcements in one secure hub.</p>
+        </div>
+        <div class="feature-card">
+            <i class="bi bi-briefcase-check"></i>
+            <h5>OJT Coordination</h5>
+            <p class="mb-0">Verify accounts, evaluate submissions, manage MOA pipelines, and broadcast memos tailored to student cohorts.</p>
+        </div>
+        <div class="feature-card">
+            <i class="bi bi-shield-lock"></i>
+            <h5>Director Oversight</h5>
+            <p class="mb-0">Monitor “for signature” queues, sign off MOAs, and keep an eye on verified students ready for deployment.</p>
+        </div>
+        <div class="feature-card">
+            <i class="bi bi-cloud-arrow-up"></i>
+            <h5>Unified Repository</h5>
+            <p class="mb-0">Version-safe student repositories ensure evaluations, documentation, and approvals stay searchable and organized.</p>
+        </div>
+    </div>
+</div>
+
+<% if (typeof announcements !== 'undefined' && announcements.length > 0) { %>
+<div class="psu-section">
+    <div class="page-headline">
+        <div>
+            <p class="text-uppercase text-muted mb-1">Campus updates</p>
+            <h2>Latest announcements</h2>
+        </div>
+    </div>
+    <div class="glass-panel">
+        <% announcements.forEach(announcement => { %>
+        <div class="mb-4 pb-4 border-bottom">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h5 class="mb-0"><%= announcement.title %></h5>
+                <span class="text-muted small"><i class="bi bi-calendar me-1"></i><%= new Date(announcement.createdAt).toLocaleDateString() %></span>
+            </div>
+            <% if (announcement.imagePath) { %>
+            <div class="mb-2">
+                <img src="/<%= announcement.imagePath %>" alt="Announcement image" class="img-fluid rounded" style="max-height: 300px; width: auto;">
+            </div>
+            <% } %>
+            <p class="text-muted mb-0"><%= announcement.content.length > 220 ? announcement.content.substring(0, 220) + '…' : announcement.content %></p>
+        </div>
+        <% }); %>
+    </div>
+</div>
+<% } %>
+
+<%- include('partials/footer') %>
+

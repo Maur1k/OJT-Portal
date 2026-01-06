@@ -2,10 +2,21 @@
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Announcements</h2>
-        <a href="/coordinator/announcements/create" class="btn btn-primary">
-            <i class="bi bi-plus-circle"></i> Create Announcement
-        </a>
+        <h2><%= typeof view !== 'undefined' && view === 'archived' ? 'Archived Announcements' : 'Announcements' %></h2>
+        <div>
+            <% if (typeof view !== 'undefined' && view === 'archived') { %>
+            <a href="/coordinator/announcements" class="btn btn-outline-primary me-2">
+                <i class="bi bi-arrow-left"></i> Back to Active
+            </a>
+            <% } else { %>
+            <a href="/coordinator/announcements?view=archived" class="btn btn-outline-secondary me-2">
+                <i class="bi bi-archive"></i> View Archive
+            </a>
+            <% } %>
+            <a href="/coordinator/announcements/create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create Announcement
+            </a>
+        </div>
     </div>
 
     <% if (typeof query !== 'undefined' && query.success) { %>
@@ -57,9 +68,9 @@
                 <a href="/coordinator/announcements/<%= announcement._id %>/edit" class="btn btn-sm btn-primary">Edit</a>
                 <% if (announcement.isActive && !announcement.isArchived) { %>
                 <form method="POST" action="/coordinator/announcements/<%= announcement._id %>/archive" class="d-inline" onsubmit="return confirm('Are you sure you want to archive this announcement?');">
-                    <button type="submit" class="btn btn-sm btn-danger">Archive</button>
+                    <button type="submit" class="btn btn-sm btn-warning">Archive</button>
                 </form>
-                <% } else if (announcement.isArchived) { %>
+                <% } else if (announcement.isArchived || !announcement.isActive) { %>
                 <form method="POST" action="/coordinator/announcements/<%= announcement._id %>/unarchive" class="d-inline" onsubmit="return confirm('Are you sure you want to unarchive this announcement?');">
                     <button type="submit" class="btn btn-sm btn-success">Unarchive</button>
                 </form>
@@ -75,24 +86,30 @@
         <ul class="pagination justify-content-center">
             <% if (currentPage > 1) { %>
             <li class="page-item">
-                <a class="page-link" href="?page=<%= currentPage - 1 %>">Previous</a>
+                <a class="page-link" href="?page=<%= currentPage - 1 %><%= typeof view !== 'undefined' && view === 'archived' ? '&view=archived' : '' %>">Previous</a>
             </li>
             <% } %>
             <% for (let i = 1; i <= totalPages; i++) { %>
             <li class="page-item <%= i === currentPage ? 'active' : '' %>">
-                <a class="page-link" href="?page=<%= i %>"><%= i %></a>
+                <a class="page-link" href="?page=<%= i %><%= typeof view !== 'undefined' && view === 'archived' ? '&view=archived' : '' %>"><%= i %></a>
             </li>
             <% } %>
             <% if (currentPage < totalPages) { %>
             <li class="page-item">
-                <a class="page-link" href="?page=<%= currentPage + 1 %>">Next</a>
+                <a class="page-link" href="?page=<%= currentPage + 1 %><%= typeof view !== 'undefined' && view === 'archived' ? '&view=archived' : '' %>">Next</a>
             </li>
             <% } %>
         </ul>
     </nav>
     <% } %>
     <% } else { %>
-    <div class="alert alert-info">No announcements yet. Create one to get started.</div>
+    <div class="alert alert-info">
+        <% if (typeof view !== 'undefined' && view === 'archived') { %>
+        No archived announcements found.
+        <% } else { %>
+        No announcements yet. Create one to get started.
+        <% } %>
+    </div>
     <% } %>
 </div>
 

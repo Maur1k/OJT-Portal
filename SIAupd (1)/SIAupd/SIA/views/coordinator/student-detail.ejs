@@ -77,25 +77,125 @@
     </div>
 
     <div class="card mb-3">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Company Information</h5>
+            <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editCompanyInfoModal">
+                <i class="bi bi-pencil"></i> Edit Company Info
+            </button>
         </div>
         <div class="card-body">
             <div class="row">
                 <div class="col-md-6">
-                    <p><strong>Company Name:</strong> <%= profile.companyName %></p>
-                    <p><strong>Company Address:</strong> <%= profile.companyAddress %></p>
-                    <p><strong>Company Contact:</strong> <%= profile.companyContact %></p>
+                    <p><strong>Company Name:</strong> <%= profile.companyName || 'N/A' %></p>
+                    <p><strong>Company Address:</strong> <%= profile.companyAddress || 'N/A' %></p>
+                    <p><strong>Company Contact:</strong> <%= profile.companyContact || 'N/A' %></p>
                 </div>
                 <div class="col-md-6">
-                    <p><strong>Supervisor Name:</strong> <%= profile.supervisorName %></p>
+                    <p><strong>Supervisor Name:</strong> <%= profile.supervisorName || 'N/A' %></p>
                     <p><strong>Supervisor Position:</strong> <%= profile.supervisorPosition || 'N/A' %></p>
                     <p><strong>Supervisor Email:</strong> <%= profile.supervisorEmail || 'N/A' %></p>
                     <p><strong>Supervisor Contact:</strong> <%= profile.supervisorContact || 'N/A' %></p>
                 </div>
             </div>
             <hr>
-            <p><strong>OJT Period:</strong> <%= new Date(profile.ojtStartDate).toLocaleDateString() %> to <%= new Date(profile.ojtEndDate).toLocaleDateString() %></p>
+            <p><strong>OJT Period:</strong> 
+                <% if (profile.ojtStartDate && profile.ojtEndDate) { %>
+                    <%= new Date(profile.ojtStartDate).toLocaleDateString() %> to <%= new Date(profile.ojtEndDate).toLocaleDateString() %>
+                <% } else { %>
+                    <span class="text-muted">Not set</span>
+                <% } %>
+            </p>
+        </div>
+    </div>
+
+    <!-- Edit Company Information Modal -->
+    <div class="modal fade" id="editCompanyInfoModal" tabindex="-1" aria-labelledby="editCompanyInfoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCompanyInfoModalLabel">Edit Company Information</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="/coordinator/students/<%= student._id %>/company-info">
+                    <div class="modal-body">
+                        <h6 class="mb-3">Company Details</h6>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="companyName" class="form-label">Company Name</label>
+                                <input type="text" class="form-control" id="companyName" name="companyName" 
+                                    value="<%= profile.companyName || '' %>" placeholder="Enter company name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="companyContact" class="form-label">Company Contact</label>
+                                <input type="text" class="form-control" id="companyContact" name="companyContact" 
+                                    value="<%= profile.companyContact || '' %>" placeholder="Enter contact number">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="companyAddress" class="form-label">Company Address</label>
+                            <textarea class="form-control" id="companyAddress" name="companyAddress" rows="2" 
+                                placeholder="Enter company address"><%= profile.companyAddress || '' %></textarea>
+                        </div>
+
+                        <hr class="my-4">
+                        <h6 class="mb-3">Supervisor Details</h6>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="supervisorName" class="form-label">Supervisor Name</label>
+                                <input type="text" class="form-control" id="supervisorName" name="supervisorName" 
+                                    value="<%= profile.supervisorName || '' %>" placeholder="Enter supervisor name">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="supervisorPosition" class="form-label">Supervisor Position</label>
+                                <input type="text" class="form-control" id="supervisorPosition" name="supervisorPosition" 
+                                    value="<%= profile.supervisorPosition || '' %>" placeholder="Enter position">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="supervisorEmail" class="form-label">Supervisor Email</label>
+                                <input type="email" class="form-control" id="supervisorEmail" name="supervisorEmail" 
+                                    value="<%= profile.supervisorEmail || '' %>" placeholder="Enter email address">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="supervisorContact" class="form-label">Supervisor Contact</label>
+                                <input type="text" class="form-control" id="supervisorContact" name="supervisorContact" 
+                                    value="<%= profile.supervisorContact || '' %>" placeholder="Enter contact number">
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+                        <h6 class="mb-3">OJT Period</h6>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="ojtStartDate" class="form-label">OJT Start Date</label>
+                                <input type="date" class="form-control" id="ojtStartDate" name="ojtStartDate" 
+                                    value="<%= profile.ojtStartDate ? new Date(profile.ojtStartDate).toISOString().split('T')[0] : '' %>">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="ojtEndDate" class="form-label">OJT End Date</label>
+                                <input type="date" class="form-control" id="ojtEndDate" name="ojtEndDate" 
+                                    value="<%= profile.ojtEndDate ? new Date(profile.ojtEndDate).toISOString().split('T')[0] : '' %>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <% } else { %>
+    <div class="card mb-3">
+        <div class="card-header">
+            <h5 class="mb-0">Student Information</h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning">
+                <strong>Profile Not Available:</strong> This student has not completed their profile yet. The profile information will appear here once the student fills out their profile.
+            </div>
         </div>
     </div>
     <% } %>

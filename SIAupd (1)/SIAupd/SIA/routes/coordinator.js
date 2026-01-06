@@ -132,14 +132,25 @@ router.get('/students', async (req, res) => {
 // View Student Profile
 router.get('/students/:id', async (req, res) => {
   try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.render('error', { error: 'Invalid student ID', title: 'Error' });
+    }
+
     const student = await User.findById(req.params.id);
     if (!student || student.role !== 'student') {
       return res.render('error', { error: 'Student not found', title: 'Error' });
     }
 
+    // Query profile - Mongoose handles ObjectId conversion automatically
     const profile = await StudentProfile.findOne({ userId: student._id });
     const moa = await MOA.findOne({ studentId: student._id });
     const fileCount = await RepositoryFile.countDocuments({ studentId: student._id });
+
+    // Log for debugging if profile is not found
+    if (!profile) {
+      console.log(`Profile not found for student ID: ${student._id}, email: ${student.email}`);
+    }
 
     res.render('coordinator/student-detail', {
       title: 'Student Details',
@@ -152,7 +163,85 @@ router.get('/students/:id', async (req, res) => {
     });
   } catch (error) {
     console.error('Student detail error:', error);
+    console.error('Error stack:', error.stack);
     res.render('error', { error: 'Error loading student details', title: 'Error' });
+  }
+});
+
+// Update Student Company Information
+router.post('/students/:id/company-info', async (req, res) => {
+  try {
+    // Validate ObjectId format
+    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+      return res.redirect('/coordinator/students?error=Invalid student ID');
+    }
+
+    const student = await User.findById(req.params.id);
+    if (!student || student.role !== 'student') {
+      return res.redirect('/coordinator/students?error=Student not found');
+    }
+
+    const profile = await StudentProfile.findOne({ userId: student._id });
+    if (!profile) {
+      return res.redirect(`/coordinator/students/${req.params.id}?error=Student profile not found`);
+    }
+
+    // Validate OJT dates if provided
+    if (req.body.ojtStartDate || req.body.ojtEndDate) {
+      if (req.body.ojtStartDate && req.body.ojtEndDate) {
+        const startDate = new Date(req.body.ojtStartDate);
+        const endDate = new Date(req.body.ojtEndDate);
+
+        if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+          return res.redirect(`/coordinator/students/${req.params.id}?error=Invalid date format`);
+        }
+
+        if (startDate >= endDate) {
+          return res.redirect(`/coordinator/students/${req.params.id}?error=End date must be after start date`);
+        }
+
+        profile.ojtStartDate = startDate;
+        profile.ojtEndDate = endDate;
+      } else if (req.body.ojtStartDate) {
+        profile.ojtStartDate = new Date(req.body.ojtStartDate);
+      } else if (req.body.ojtEndDate) {
+        profile.ojtEndDate = new Date(req.body.ojtEndDate);
+      }
+    }
+
+    // Update company information
+    if (req.body.companyName !== undefined) {
+      profile.companyName = req.body.companyName.trim() || null;
+    }
+    if (req.body.companyAddress !== undefined) {
+      profile.companyAddress = req.body.companyAddress.trim() || null;
+    }
+    if (req.body.companyContact !== undefined) {
+      profile.companyContact = req.body.companyContact.trim() || null;
+    }
+
+    // Update supervisor information
+    if (req.body.supervisorName !== undefined) {
+      profile.supervisorName = req.body.supervisorName.trim() || null;
+    }
+    if (req.body.supervisorPosition !== undefined) {
+      profile.supervisorPosition = req.body.supervisorPosition.trim() || null;
+    }
+    if (req.body.supervisorEmail !== undefined) {
+      profile.supervisorEmail = req.body.supervisorEmail.trim() || null;
+    }
+    if (req.body.supervisorContact !== undefined) {
+      profile.supervisorContact = req.body.supervisorContact.trim() || null;
+    }
+
+    await profile.save();
+
+    await logActivity(req.user._id, 'UPDATE_COMPANY_INFO', `Updated company information for student: ${student.email}`, student._id);
+
+    res.redirect(`/coordinator/students/${req.params.id}?success=Company information updated successfully`);
+  } catch (error) {
+    console.error('Update company info error:', error);
+    res.redirect(`/coordinator/students/${req.params.id}?error=Error updating company information`);
   }
 });
 
@@ -436,22 +525,43 @@ router.get('/announcements', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = 20;
     const skip = (page - 1) * limit;
+    const view = req.query.view || 'active'; // 'active' or 'archived'
 
-    const announcements = await Announcement.find()
+    // Build query based on view
+    let query = {};
+    if (view === 'archived') {
+      // Show archived announcements OR inactive announcements (treat inactive as archived)
+      query = {
+        $or: [
+          { isArchived: true },
+          { isActive: false }
+        ]
+      };
+    } else {
+      // Show only active, non-archived announcements
+      query = {
+        isActive: true,
+        isArchived: { $ne: true }
+      };
+    }
+
+    const announcements = await Announcement.find(query)
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
       .populate('postedBy', 'email');
 
-    const total = await Announcement.countDocuments();
+    const total = await Announcement.countDocuments(query);
     const totalPages = Math.ceil(total / limit);
 
     res.render('coordinator/announcements', {
-      title: 'Announcements',
+      title: view === 'archived' ? 'Archived Announcements' : 'Announcements',
       user: req.user,
       announcements,
       currentPage: page,
-      totalPages
+      totalPages,
+      view,
+      query: req.query
     });
   } catch (error) {
     console.error('Announcements error:', error);
@@ -608,7 +718,9 @@ router.post('/announcements/:id/unarchive', async (req, res) => {
     await announcement.save();
 
     await logActivity(req.user._id, 'UNARCHIVE_ANNOUNCEMENT', `Unarchived announcement: ${announcement.title}`);
-    res.redirect('/coordinator/announcements?success=' + encodeURIComponent('Announcement unarchived successfully'));
+    // Redirect to archive view if user was viewing archive, otherwise go to active
+    const redirectView = req.query.view === 'archived' ? '?view=archived&success=' : '?success=';
+    res.redirect('/coordinator/announcements' + redirectView + encodeURIComponent('Announcement unarchived successfully'));
   } catch (error) {
     console.error('Unarchive announcement error:', error);
     res.redirect('/coordinator/announcements?error=Error unarchiving announcement');

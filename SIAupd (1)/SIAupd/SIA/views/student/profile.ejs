@@ -46,8 +46,9 @@
     <!-- Company Information (if exists) -->
     <% if (profile.companyName) { %>
     <div class="card mt-3">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="mb-0">Company Information</h5>
+            <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#editCompanyInfoModal">Edit Company Info</button>
         </div>
         <div class="card-body">
             <div class="row">
@@ -317,6 +318,74 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Upload Photos</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Company Information Modal (Students can edit company info but NOT OJT dates) -->
+<div class="modal fade" id="editCompanyInfoModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Company Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="/student/profile/company-info">
+                <div class="modal-body">
+                    <h6 class="mb-3">Company Details</h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="companyName" class="form-label">Company Name</label>
+                            <input type="text" class="form-control" id="companyName" name="companyName" 
+                                value="<%= profile.companyName || '' %>" placeholder="Enter company name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="companyContact" class="form-label">Company Contact</label>
+                            <input type="text" class="form-control" id="companyContact" name="companyContact" 
+                                value="<%= profile.companyContact || '' %>" placeholder="Enter contact number">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="companyAddress" class="form-label">Company Address</label>
+                        <textarea class="form-control" id="companyAddress" name="companyAddress" rows="2" 
+                            placeholder="Enter company address"><%= profile.companyAddress || '' %></textarea>
+                    </div>
+
+                    <hr class="my-4">
+                    <h6 class="mb-3">Supervisor Details</h6>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="supervisorName" class="form-label">Supervisor Name</label>
+                            <input type="text" class="form-control" id="supervisorName" name="supervisorName" 
+                                value="<%= profile.supervisorName || '' %>" placeholder="Enter supervisor name">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="supervisorPosition" class="form-label">Supervisor Position</label>
+                            <input type="text" class="form-control" id="supervisorPosition" name="supervisorPosition" 
+                                value="<%= profile.supervisorPosition || '' %>" placeholder="Enter position">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="supervisorEmail" class="form-label">Supervisor Email</label>
+                            <input type="email" class="form-control" id="supervisorEmail" name="supervisorEmail" 
+                                value="<%= profile.supervisorEmail || '' %>" placeholder="Enter email address">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="supervisorContact" class="form-label">Supervisor Contact</label>
+                            <input type="text" class="form-control" id="supervisorContact" name="supervisorContact" 
+                                value="<%= profile.supervisorContact || '' %>" placeholder="Enter contact number">
+                        </div>
+                    </div>
+                    <div class="alert alert-info mt-3">
+                        <i class="bi bi-info-circle"></i> <strong>Note:</strong> OJT start and end dates can only be set by coordinators. Please contact your coordinator if you need to update the OJT period.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                 </div>
             </form>
         </div>

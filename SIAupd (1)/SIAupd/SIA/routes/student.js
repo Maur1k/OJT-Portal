@@ -551,8 +551,16 @@ router.post('/profile', isVerified, async (req, res) => {
       return res.redirect('/student/profile');
     }
 
+    // Fields that students are NOT allowed to update
+    const restrictedFields = ['ojtStartDate', 'ojtEndDate', 'userId', 'studentNumber', 'firstName', 'lastName', 'middleName', 'course', 'yearLevel', 'section', 'status'];
+
     Object.keys(req.body).forEach(key => {
-      if (req.body[key] && key !== 'userId') {
+      // Skip restricted fields - students cannot edit these
+      if (restrictedFields.includes(key)) {
+        return;
+      }
+
+      if (req.body[key] !== undefined && key !== 'userId') {
         if (key === 'emergencyContactName' || key === 'emergencyContactRelationship' || key === 'emergencyContactNumber') {
           profile.emergencyContact = {
             name: req.body.emergencyContactName || profile.emergencyContact?.name,
@@ -562,7 +570,7 @@ router.post('/profile', isVerified, async (req, res) => {
         } else if (key === 'narrative') {
           profile.narrative = req.body.narrative;
         } else {
-          profile[key] = req.body[key];
+          profile[key] = req.body[key] ? req.body[key].trim() : null;
         }
       }
     });
@@ -574,6 +582,53 @@ router.post('/profile', isVerified, async (req, res) => {
   } catch (error) {
     console.error('Update profile error:', error);
     res.redirect('/student/profile?error=Error updating profile');
+  }
+});
+
+// Update Company Information (Students can edit company info but NOT OJT dates)
+router.post('/profile/company-info', isVerified, async (req, res) => {
+  try {
+    const profile = await StudentProfile.findOne({ userId: req.user._id });
+    
+    if (!profile) {
+      return res.redirect('/student/profile?error=Profile not found');
+    }
+
+    // Update company information
+    if (req.body.companyName !== undefined) {
+      profile.companyName = req.body.companyName.trim() || null;
+    }
+    if (req.body.companyAddress !== undefined) {
+      profile.companyAddress = req.body.companyAddress.trim() || null;
+    }
+    if (req.body.companyContact !== undefined) {
+      profile.companyContact = req.body.companyContact.trim() || null;
+    }
+
+    // Update supervisor information
+    if (req.body.supervisorName !== undefined) {
+      profile.supervisorName = req.body.supervisorName.trim() || null;
+    }
+    if (req.body.supervisorPosition !== undefined) {
+      profile.supervisorPosition = req.body.supervisorPosition.trim() || null;
+    }
+    if (req.body.supervisorEmail !== undefined) {
+      profile.supervisorEmail = req.body.supervisorEmail.trim() || null;
+    }
+    if (req.body.supervisorContact !== undefined) {
+      profile.supervisorContact = req.body.supervisorContact.trim() || null;
+    }
+
+    // Explicitly prevent OJT date updates - students cannot edit these
+    // OJT dates are only editable by coordinators
+
+    await profile.save();
+    await logActivity(req.user._id, 'UPDATE_COMPANY_INFO', 'Student updated company information');
+
+    res.redirect('/student/profile?success=Company information updated successfully');
+  } catch (error) {
+    console.error('Update company info error:', error);
+    res.redirect('/student/profile?error=Error updating company information');
   }
 });
 

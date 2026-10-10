@@ -226,6 +226,7 @@ strong {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
+    align-items: stretch;
 }
 
 .feature-card {
@@ -234,13 +235,30 @@ strong {
     background: rgba(255, 255, 255, 0.96);
     border: 1px solid rgba(0, 56, 168, 0.08);
     box-shadow: var(--psu-shadow);
-    min-height: 170px;
+    min-height: 230px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .feature-card i {
+    display: flex;
+    align-items: center;
     font-size: 1.8rem;
     color: var(--psu-yellow);
+    height: 2.25rem;
     margin-bottom: 1rem;
+}
+
+.feature-card h5 {
+    display: flex;
+    align-items: flex-start;
+    min-height: 2.8rem;
+    margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+    margin-bottom: 0;
 }
 
 .psu-navbar .nav-links {
@@ -1343,5 +1361,201 @@ footer {
 
     .psu-navbar {
         padding: 1rem;
+    }
+}
+
+/* Shared layout refinements */
+.psu-navbar {
+    display: grid;
+    grid-template-columns: minmax(300px, 350px) minmax(0, 1fr) auto;
+}
+
+.psu-navbar .brand {
+    max-width: 350px;
+}
+
+.psu-navbar .nav-links:not(.public-nav) {
+    max-width: none;
+}
+
+.psu-navbar .public-nav {
+    grid-column: 3;
+    justify-content: flex-end;
+    margin-left: auto;
+    margin-right: 0;
+    max-width: none;
+    flex: 0 0 auto;
+}
+
+.page-content > .container {
+    width: 100%;
+}
+
+.page-headline {
+    gap: 1rem;
+}
+
+.page-headline > * {
+    min-width: 0;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 991px) {
+    .psu-navbar {
+        display: flex;
+    }
+
+    .psu-navbar .brand {
+        max-width: none;
+    }
+
+    .psu-navbar .public-nav {
+        display: flex;
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 0 0 0 auto;
+        padding: 0;
+        border-top: 0;
+        max-width: none;
+        order: 3;
+    }
+
+    .psu-navbar .public-nav .nav-link {
+        width: auto;
+        justify-content: center;
+    }
+
+    .psu-navbar .nav-links:not(.public-nav) {
+        max-width: 100%;
+    }
+
+    .page-content {
+        overflow-x: hidden;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-content {
+        padding: 1.5rem 0.75rem 2rem;
+    }
+
+    .page-content > .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .hero-card,
+    .glass-panel,
+    .form-card,
+    .card {
+        padding: 1.25rem;
+        border-radius: 20px;
+    }
+
+    .hero-card h1 {
+        font-size: 2rem;
+    }
+
+    .hero-card p {
+        font-size: 0.98rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
+
+    .hero-stats .stat {
+        min-width: 0;
+    }
+
+    .hero-stats h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero-stats .stat span {
+        display: block;
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+
+    .feature-grid,
+    .stat-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        min-height: 16.75rem;
+    }
+
+    .page-headline {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .page-headline h2 {
+        font-size: 1.5rem;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions .btn {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .psu-navbar {
+        grid-template-columns: minmax(270px, 310px) minmax(0, 1fr) auto;
+    }
+
+    .psu-navbar .brand {
+        max-width: 310px;
+    }
+}
+
+@media (max-width: 575px) {
+    .psu-navbar .brand-text h1,
+    .psu-navbar .brand-text span {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
+    }
+
+    .psu-navbar .public-nav .nav-link {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.78rem;
+    }
+
+    .psu-navbar .brand-text h1 {
+        max-width: 150px;
+    }
+
+    .psu-navbar .brand-text span {
+        max-width: 150px;
+    }
+
+    .hero-stats {
+        gap: 0.5rem;
     }
 }
